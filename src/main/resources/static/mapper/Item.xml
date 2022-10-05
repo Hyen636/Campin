@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campin.mybatis.ItemMapper">
+	<!-- 캠핑장 -->
+	<select id="getcUserName" parameterType="Integer" resultType="String">
+		select mName from cUser
+		where cUserCode = '${_paremeter}'
+	</select>
+	<select id="getMaxItemCode" resultType="Integer">
+		select max(itemCode) from item
+	</select>
+	<select id="getMaxHisItemSno" resultType="Integer">
+		select max(hisItemSno) from historyitem
+	</select>
+	<select id="getItemCode" parameterType="Integer" resultType="Integer">
+		select itemCode from item where cUserCode = '${_parameter}'
+	</select>	
+	<select id="getcUserCode" parameterType="Integer" resultType="Integer">
+		select cUserCode from item
+		where itemCode = #{itemCode}
+	</select>
+	<select id="getcUserEmail" parameterType="Integer" resultType="String">
+		select email from cUser
+		where cUserCode = '${_parameter}'
+	</select>
+	<insert id="insertItem" parameterType="ItemVo">
+		insert into Item(cUserCode, mName, iName, phone, zipCode,
+						 address1, address2, sido, latitude, longitude, title, infoText, 
+						 mEnd, mStr, checkIn, checkOut, policy, refund, state, extraAdult, extraChild)
+		values(#{cUserCode}, #{mName}, #{iName}, #{phone}, #{zipCode}, #{address1},
+			   #{address2}, #{sido}, #{latitude}, #{longitude}, #{title}, #{infoText},
+			   #{mEnd}, #{mStr}, #{checkIn}, #{checkOut}, #{policy}, #{refund}, #{state}, 
+			   #{extraAdult}, #{extraChild}) 
+	</insert>
+	<!-- 초기에 캠핑장 등록할 때 / 수정 요청에서 승인할 때 -->
+	<update id="updateItem" parameterType="ItemVo">
+		update item i
+		<if test ="hisItemSno != 0">
+		join historyItem hi on i.itemCode = hi.itemCode
+		</if>
+		set i.mName = #{mName}, i.iName = #{iName}, i.phone = #{phone}, i.zipCode = #{zipCode}, 
+ 			i.address1 = #{address1}, i.address2 = #{address2}, i.sido = #{sido}, i.latitude = #{latitude}, 
+ 			i.longitude = #{longitude}, i.title = #{title}, i.infoText = #{infoText}, i.mEnd = #{mEnd}, 
+ 			i.mStr = #{mStr}, i.checkIn = #{checkIn}, i.checkOut = #{checkOut}, i.policy = #{policy}, 
+ 			i.refund = #{refund}, i.state = #{state}, i.extraAdult = #{extraAdult}, i.extraChild = #{extraChild}
+ 			<if test ="hisItemSno != 0">
+			,hi.state = #{state}
+			</if>
+		where i.cUserCode = #{cUserCode} 
+		<if test ="hisItemSno != 0">
+		and hi.hisItemSno = #{hisItemSno}		
+		</if>
+	</update>
+	<insert id="insertCategory" parameterType="CategoryVo">
+		insert into category(itemCode, cTag, cFilter) values 
+		<foreach collection="list" item="vo" separator=",">
+			(#{vo.itemCode}, #{vo.cTag}, #{vo.cFilter})
+		</foreach>
+	</insert>	
+	<insert id="insertItemOption" parameterType="ItemOptionVo">
+		insert into itemoption(itemCode, optItem, price) values
+		<foreach collection="list" item="vo" separator=",">
+			(#{vo.itemCode}, #{vo.optItem}, #{vo.price})
+		</foreach>	
+	</insert>	
+	<insert id="insertItemAtt" parameterType="ItemAtt">
+		insert into itematt(itemCode, itemType, oriFile, sysFile) values
+		<foreach collection="list" item="vo" separator=",">
+			(#{vo.itemCode}, #{vo.itemType}, #{vo.oriFile}, #{vo.sysFile})
+		</foreach>
+	</insert>
+
+	<insert id="insertItemHistory" parameterType="ItemVo">
+		insert into Historyitem(itemCode, cUserCode, mName, iName, phone, zipCode,
+				address1, address2, sido, latitude, longitude, title, infoText, 
+				mEnd, mStr, checkIn, checkOut, policy, refund, state, extraAdult, extraChild)
+		values(#{itemCode}, #{cUserCode}, #{mName}, #{iName}, #{phone}, #{zipCode}, #{address1},
+			   #{address2}, #{sido}, #{latitude}, #{longitude}, #{title}, #{infoText},
+			   #{mEnd}, #{mStr}, #{checkIn}, #{checkOut}, #{policy}, #{refund}, #{state}, 
+			   #{extraAdult}, #{extraChild}) 
+	</insert>
+	<insert id="insertCategoryHistory" parameterType="CategoryVo">
+		insert into historycategory(hisItemSno, itemCode, cTag, cFilter) values 
+		<foreach collection="list" item="vo" separator=",">
+			(#{vo.hisItemSno}, #{vo.itemCode}, #{vo.cTag}, #{vo.cFilter})
+		</foreach>
+	</insert>	
+	<insert id="insertItemOptionHistory" parameterType="ItemOptionVo">
+		insert into historyitemoption(hisItemSno, itemCode, optItem, price) values
+		<foreach collection="list" item="vo" separator=",">
+			(#{vo.hisItemSno}, #{vo.itemCode}, #{vo.optItem}, #{vo.price})
+		</foreach>	
+	</insert>	
+	<insert id="insertItemAttHistory" parameterType="ItemAtt">
+		insert into historyitematt(hisItemSno, hisDetailSno, itemCode, itemType, oriFile, sysFile) values
+		<foreach collection="list" item="vo" separator=",">
+			(#{vo.hisItemSno}, #{vo.hisDetailSno}, #{vo.itemCode}, #{vo.itemType}, #{vo.oriFile}, #{vo.sysFile})
+		</foreach>
+	</insert>
+	
+	<select id="selectItem" parameterType="Integer" resultType="ItemVo">
+		select cUserCode, itemCode, mName, iName, phone, zipCode,
+			   address1, address2, sido, latitude, longitude, title, infoText, 
+			   mEnd, mStr, checkIn, checkOut, policy, refund, state, extraAdult, extraChild, rejectMsg
+		from item
+		where itemCode = '${_parameter}'
+	</select>
+	<select id="selectCategory" parameterType="Integer" resultType="CategoryVo">
+		select cTag, cFilter
+		from category
+		where itemCode = '${_parameter}'
+	</select>
+	<select id="selectItemOption" parameterType="Integer" resultType="ItemOptionVo">
+		select optItem, price
+		from itemOption
+		where itemCode = '${_parameter}'
+	</select>
+	<select id="selectItemImg" parameterType="Integer" resultType="ItemAtt">
+		select itemType, oriFile, sysFile
+		from itemAtt
+		where itemCode = '${_parameter}'
+	</select>
+	
+	<select id="selectHisItem" parameterType="Integer" resultType="itemVo">
+		select hisItemSno, itemCode, cUserCode, mName, iName, phone, zipCode,
+			   address1, address2, sido, latitude, longitude, title, infoText, 
+			   mEnd, mStr, checkIn, checkOut, policy, refund, state, extraAdult, extraChild, rejectMsg
+		from historyItem
+		where hisItemSno = '${_parameter}'
+	</select>
+	<select id="selectHisCategory" parameterType="Integer" resultType="CategoryVo">
+		select *
+		from historycategory
+		where hisItemSno = '${_parameter}'
+	</select>
+	<select id="selectHisItemOption" parameterType="Integer" resultType="ItemOptionVo">
+		select *
+		from historyitemOption
+		where hisItemSno = '${_parameter}'
+	</select>
+	<select id="selectHisItemImg" parameterType="Integer" resultType="ItemAtt">
+		select *
+		from historyitemAtt
+		where hisItemSno = '${_parameter}'
+	</select>
+		<delete id="deleteItemOption" parameterType="Integer">
+		delete from itemOption where itemCode = #{_parameter}
+	</delete>
+	
+	<delete id="deleteCategory"  parameterType="Integer">
+		delete from category where itemCode = #{_parameter}
+	</delete>
+	
+	<delete id="deleteItemAttMap" parameterType="Integer">
+		delete from itemAtt 
+		where itemCode = #{_parameter} and itemType = 'map'
+	</delete>
+	<delete id="deleteItemAttWH" parameterType="Integer">
+		delete from itemAtt 
+		where itemCode = #{_parameter} and itemType = 'WH'
+	</delete>
+	
+	<update id="rejectItem" parameterType="ItemVo">
+		update item i
+		join historyitem hi on i.itemCode = hi.itemCode
+		set hi.state = #{state}, hi.rejectMsg = #{rejectMsg}
+		where i.itemCode = #{itemCode} and hi.hisItemSno = #{hisItemSno};
+	</update>
+	
+	
+	<!-- 사이트 -->
+	<select id="selectSiteList" parameterType="Integer" resultType="SiteVo">
+		select siteCode, siteName, category, price, state
+		from itemDetail where itemCode = '${_parameter}'
+	</select>
+	<select id="getMaxSiteCode" parameterType="Integer" resultType="Integer">
+		select max(siteCode) from itemDetail
+		where itemCode = '${_parameter}'
+	</select>
+	<select id="getMaxHisDetailSno" parameterType="Integer" resultType="Integer">
+		select max(hisDetailSno) from historyItemDetail
+		where itemCode = '${_parameter}'
+	</select>
+	<insert id="insertSite" parameterType="SiteVo">
+		insert into itemDetail(itemCode, siteName, siteSize, price, siteType, category,
+		 	   sPeople, mPeople, cntCar, infoText, state)
+		values (#{itemCode}, #{siteName}, #{siteSize}, #{price}, #{siteType}, #{category}, 
+		 	    #{sPeople}, #{mPeople}, #{cntCar}, #{infoText}, #{state})
+	</insert>
+	<insert id="insertSiteAtt" parameterType="ItemAtt">
+		insert into itematt(itemCode, itemType, oriFile, sysFile) values
+		<foreach collection="list" item="vo" separator=",">
+			(#{vo.itemCode}, #{vo.itemType}, #{vo.oriFile}, #{vo.sysFile})
+		</foreach>
+	</insert>
+	
+	<insert id="insertSiteHistory" parameterType="SiteVo">
+		insert into historyItemDetail(itemCode, siteCode, siteName, siteSize, price, siteType, category,
+		 	   sPeople, mPeople, cntCar, infoText, state)
+		values (#{itemCode}, #{siteCode}, #{siteName}, #{siteSize}, #{price}, #{siteType}, #{category}, 
+		 	    #{sPeople}, #{mPeople}, #{cntCar}, #{infoText}, #{state})
+	</insert>
+	<insert id="insertSiteAttHistory" parameterType="ItemAtt">
+		insert into historyItemAtt(hisDetailSno, itemCode, itemType, oriFile, sysFile) values
+		<foreach collection="list" item="vo" separator=",">
+			(#{vo.hisDetailSno}, #{vo.itemCode}, #{vo.itemType}, #{vo.oriFile}, #{vo.sysFile})
+		</foreach>
+	</insert>
+	<select id="selectSite" parameterType="SiteVo" resultType="SiteVo">
+		select itemCode, siteCode, siteName, siteSize, price, siteType, category,
+		       sPeople, mPeople, cntCar, infoText
+		from itemDetail
+		where itemCode = #{itemCode} and siteCode = #{siteCode}
+	</select>
+	<select id="selectSiteImg" parameterType="SiteVo" resultType="itemAtt">
+		select sysFile, oriFile from itemAtt
+		where itemCode = #{itemCode} and itemType = #{siteName}
+	</select>
+	<select id="selectSiteHistory" parameterType="Integer" resultType="SiteVo">
+		select * from historyItemDetail
+		where hisDetailSno = '${_parameter}'
+	</select>
+	<select id="selectSiteImgHistory" parameterType="Integer" resultType="ItemAtt">
+		select * from historyItemAtt
+		where hisDetailSno = '${_parameter}'
+	</select>
+	<update id="updateSite" parameterType="SiteVo">
+		update itemDetail i
+		join historyItemDetail hi on i.itemCode = hi.itemCode
+		set i.siteName=#{siteName}, i.siteSize=#{siteSize}, i.price=#{price},
+		    i.siteType=#{siteType}, i.category=#{category}, i.sPeople=#{sPeople},
+		    i.mPeople=#{mPeople}, i.cntCar=#{cntCar}, i.infoText=#{infoText}, i.state=#{state},
+		    hi.state=#{state}
+		where i.siteCode = #{siteCode} and hi.hisDetailSno=#{hisDetailSno}
+	</update>
+	<delete id="deleteSiteAtt" parameterType="SiteVo">
+		delete from itemAtt
+		where itemCode=#{itemCode} and itemType=#{siteName}
+	</delete>
+	<update id="rejectSite" parameterType="SiteVo">
+		update itemDetail i
+		join historyitemDetail hi on i.itemCode = hi.itemCode
+		set i.state = #{state}, i.rejectMsg = #{rejectMsg},
+		    hi.state = #{state}, hi.rejectMsg = #{rejectMsg}
+		where i.itemCode = #{itemCode} and hi.hisDetailSno = #{hisDetailSno};
+	</update>
+</mapper>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace='com.campin.mybatis.UserReservationMapper'>
+	<select id='selectR' parameterType='Integer' resultType='UserReservationVo'>
+		select o.orderCode, o.iName, o.siteCode, o.dateStr, o.dateEnd, o.amt, o.state, o.userCode, o.itemCode, o.siteCode, o.siteName, iA.sysFile
+		from orders o left join itemAtt iA 
+		on o.itemCode = iA.itemCode 
+		where o.userCode = #{userCode}
+		and iA.itemType = "WH"
+		order by o.orderCode
+	</select>
+	
+	<insert id='insert' parameterType='UserReservationVo'>
+		insert into review(orderCode, seq, nal, userCode, itemCode, siteCode, siteName, doc, score, state, oriFile, sysFile)
+		values(#{orderCode}, 0, #{nal}, #{userCode}, #{itemCode}, #{siteCode}, #{siteName}, #{doc}, #{score}, "미답변", #{oriFile}, #{sysFile})
+	</insert>
+	
+	<update id='updateRS' parameterType='Integer'>
+		update orders set state="리뷰완료" where orderCode = #{orderCode}
+	</update>
+	
+	<select id='viewDetail' parameterType='Integer' resultType='UserReservationVo'>
+		select o.mName, o.orderCode, o.phone, o.email, o.refBank, o.refAct, 
+	   		   o.userCar, o.pet, o.doc, o.iName, o.siteName, o.price, o.extraOpt, o.extraFee, 
+	   		   o.dateStr, o.dateEnd, o.adult, o.child, o.amt, o.payment, o.state,
+	  		   o.busiBank, o.busiName, o.busiNum, o.itemCode, iA.sysFile
+		from orders o join itemAtt iA 	
+		on o.itemCode = iA.itemCode 
+		where o.orderCode = #{orderCode}
+		and iA.itemType = "WH"
+		limit 1
+	</select>
+	
+	<update id='update' parameterType='UserReservationVo'>
+		update orders set userCar=#{userCar}, pet=#{pet}, doc=#{doc}
+		where orderCode = #{orderCode}
+	</update>
+	
+	<update id='updateR' parameterType='Integer'>
+		update orders set state = "예약취소"
+		where orderCode = #{orderCode}
+	</update>
+	
+	<select id='selectReview1' parameterType='Integer' resultType='UserReservationVo'>
+		select r.orderCode, r.sno, r.seq, r.doc, r.score, r.state, r.sysFile, o.iName, o.dateStr, o.dateEnd, o.amt, i.address1, i.itemCode, iA.sysFile as sysFileC
+		from review r, orders o, item i , itematt iA
+		where r.orderCode = o.orderCode 
+		and o.itemCode = i.itemCode 
+		and i.itemCode = iA.itemCode 
+		and o.userCode = #{userCode}
+		and r.seq = 0
+		and iA.itemType = "WH"
+		order by o.orderCode
+	</select>	
+	
+	<select id='selectRAnswer' parameterType='Integer' resultType='UserReservationVo'>
+		select orderCode, doc
+		from review
+		where userCode = #{userCode}
+		and seq = 1
+		order by sno
+	</select>
+	
+	<update id='modifyR' parameterType='UserReservationVo'>
+		update review set score = #{score}, doc=#{doc}, oriFile=#{oriFile}, sysFile=#{sysFile}
+		where orderCode = #{orderCode}
+		and seq = 0
+	</update>
+	
+	<delete id='deleteR' parameterType='Integer'>
+		delete from review where orderCode = #{orderCode}
+	</delete>
+	
+	<select id='selectReservation1' parameterType='Integer' resultType='UserReservationVo'>
+		select u.mName, u.email, u.phone, iA.sysFile
+		from user u, itematt iA 
+		where u.userCode = #{userCode}
+		and iA.itemCode = #{itemCode}
+		and iA.itemType = "WH"
+		limit 1
+	</select>
+	
+	<select id='selectReservation2' parameterType='Integer' resultType='UserReservationVo'>
+		select optItem, price
+		from  itemoption 
+		where itemCode = #{itemCode}
+	</select>
+	
+	<select id='selectReservation3' parameterType='Integer' resultType='UserReservationVo'>
+		select i.itemCode, i.iName, i.extraAdult, i.extraChild, c.busiBank, c.busiName, c.busiNum, c.cusercode as cUserCode, iD.siteName, iD.sPeople, 
+			   iD.mPeople, iD.price as iPrice, iD.siteCode 
+		from item i, itemDetail iD, cuser c
+		where i.itemCode = iD.itemCode 
+		and iD.siteCode = #{siteCode}
+		and i.itemCode = #{itemCode}
+		and c.cusercode = #{cUserCode}
+	</select>
+	
+	<insert id='insertOrders' parameterType='UserReservationVo'>
+		insert into orders(userCode, mName, phone, email, userCar, itemCode, iName, siteCode, siteName, busiBank, busiName, busiNum, dateStr, dateEnd, adult, child, pet, extraOpt, extraFee, price, amt, fee, payment, refBank, refAct, doc, state, dateOrder, orderCode2)
+		values(#{userCode}, #{mName}, #{phone}, #{email}, #{userCar}, #{itemCode}, #{iName}, #{siteCode}, #{siteName}, #{busiBank}, #{busiName}, #{busiNum}, #{dateStr}, #{dateEnd}, #{adult}, #{child}, #{pet}, #{extraOpt}, #{extraFee}, #{price}, #{amt}, 0, #{payment}, #{refBank}, #{refAct}, #{doc}, #{state}, #{dateOrder}, #{orderCode2})
+	</insert>
+	
+	<select id='nextReservation' parameterType='String' resultType='UserReservationVo'>
+		select * from orders where orderCode2 = #{orderCode2}
+	</select>
+	
+	<select id='nextReservation2' parameterType='Integer' resultType='UserReservationVo'>
+		select sysFile from itematt where itemCode = #{itemCode} and itemType= "WH" limit 1
+	</select>
+</mapper>

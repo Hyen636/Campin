@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+*{
+	--margin: 0px auto;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;		
+}
+#manager_account_list{
+	width: 1000px;
+	margin: 0px auto;
+	text-align: center;
+}
+#manager_account_list > h2{
+	text-align: center;
+	font-size: 25pt;
+	font-weight: bold;
+	color: #f8ca37;
+}
+#manager_account_list .frm_account_search{
+	text-align : right;
+	margin : 15px auto;
+	padding : 10px;
+}
+#manager_account_list > .account_search{
+	display: inline-block;
+	width: 380px;
+	--margin-left: 655px;
+}
+#manager_account_list > .frm_account_search .account_findStr{
+	margin-bottom: 5px;
+	border: 2px solid #f8ca37;
+	border-radius: 5px;
+	padding: 10px;
+	width: 250px;
+	height: 30px;
+}
+#manager_account_list > .account_search img{
+	display: inline-block;
+	cursor: pointer;
+	vertical-align: top;
+}
+#manager_account_list > .list{
+	width: 950px;
+	margin-left: 50px;
+}
+#manager_account_list > .list > .title{
+	background-color: #f8ca37;
+	color: #fff;
+	padding: 2px 5px;
+}
+#manager_account_list > .list > .title span{
+	color: #fff;
+}
+#manager_account_list > .list span{
+	display: inline-block;
+	text-align: center;
+}
+#manager_account_list > .list .item{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#manager_account_list > .list .no{
+	width: 25px;
+	text-align: center;
+}
+#manager_account_list > .list .aUserCode{width: 80px; text-align: center;}
+#manager_account_list > .list .id{width: 90px; text-align: center;}
+#manager_account_list > .list .mName{width: 60px; text-align: center;}
+#manager_account_list > .list .birth{width: 100px; padding-left: 15px; text-align: center;}
+#manager_account_list > .list .phone{width: 150px; text-align: center;}
+#manager_account_list > .list .email{width: 115px; text-align: center;}
+#manager_account_list > .list .gender{width: 50px; padding-left: 15px; text-align: center;}
+#manager_account_list > .list .regDate{width: 115px; text-align: center;}
+#manager_account_list > .list .job{width: 60px; text-align: center;}
+#manager_account_list > .list .delete_account{
+	width: 50px;
+	text-align: center;
+}
+#manager_account_list > .list .item:hover{
+	cursor: pointer;
+	background-color: #fef2cf;
+	cursor: pointer;
+	transition : all .2s;
+}
+#manager_account_list > .list .item:last-child{
+	border-bottom: 2px solid #f8ca37;
+	margin-bottom: 8px;
+}
+#manager_account_list .paging{
+	text-align: center;
+}
+#manager_account_list .paging button{
+	border: none;
+	background-color: #fff;
+	color: #f8ca37;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px;
+}
+#manager_account_list .paging button:hover{
+	color:  #fbdb79;
+	cursor: pointer;
+}
+#manager_account_list .btn_prev_page{
+	border: 1px solid #f8ca37;
+	border-radius: 5px;
+	background-color: #f8ca37;
+	color: #fff;
+	font-size: 17px;
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	margin-left: 900px;
+}
+#manager_account_list .btn_prev_page:hover{
+	background-color: #fbdb79;
+	cursor: pointer;
+}

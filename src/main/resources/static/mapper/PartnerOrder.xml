@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campin.mybatis.PartnerOrderMapper">
+	<!-- 예약 조회 -->
+	<select id="selectCalendar" parameterType="PartnerOrderVo" resultType="PartnerOrderVo">
+		select * from orders
+		where itemCode = ${itemCode} 
+		  and (dateStr like '${dateStr}%' or dateEnd like '${dateStr}%')
+		  and (state='예약대기' or state='예약완료' or state='입금대기' or state='방문완료')
+		order by orderCode desc
+	</select>
+	
+	<select id="totSize"  parameterType="PartnerOrderPage" resultType="Integer">
+		select count(orderCode) from orders
+		where itemCode = #{itemCode} and ((#{start} &lt;= dateStr) or (#{start} &lt;= dateEnd )) and ((#{end} &gt;= dateStr) or (#{end} &gt;= dateEnd))
+	</select>
+	<select id="selectDate" parameterType="PartnerOrderPage" resultType="PartnerOrderVo">
+		select * from orders
+		where itemCode = #{itemCode} and ((#{start} &lt;= dateStr) or (#{start} &lt; dateEnd )) and ((#{end} &gt;= dateStr) or (#{end} &gt; dateEnd))
+			  and (mName like '%${findStr}%' or siteName like '%${findStr}%')
+		order by orderCode desc
+		limit ${startNo-1}, ${listSize}
+	</select>
+	<select id="selectOrderDetail" parameterType="Integer" resultType="PartnerOrderVo">
+		select * from orders
+		where orderCode = '${_parameter}'
+	</select>
+	<update id="orderConfirm" parameterType="Integer">
+		update orders set state='예약완료'
+		where orderCode = '${_parameter}'
+	</update>
+	<update id="orderCancel" parameterType="Integer">
+		update orders set state='예약취소'
+		where orderCode = '${_parameter}'
+	</update>
+	<update id="visitCompleted" parameterType="String">
+		update orders set state='방문완료'
+		where dateEnd='${_parameter}' and state='예약대기'
+	</update>
+	<update id="autoCancel" parameterType="String">
+		update orders set state='예약취소'
+		where dateOrder = date_add('${_parameter}', interval 1 day) 
+		  and payment = '무통장입금' and state='입금대기'
+	</update>
+	
+	<!-- 매출조회  -->
+	<!-- 일간 -->
+	<select id="selectSales" parameterType="SalesVo" resultType="SalesVo">
+		select i.iName, o.itemCode, sum(o.price) as amount, o.dateOrder, count(o.price) as count 
+		from orders o
+		join item i on o.itemCode = i.itemCode 
+		where o.itemCode = #{itemCode}
+		and (('${dateStr}' &lt;= o.dateOrder) and ('${dateEnd}' &gt;= o.dateOrder ))
+		and (o.state = '예약완료' or o.state = '리뷰완료' or o.state = '방문완료')
+		group by dateOrder
+		order by dateOrder;
+	</select>
+	<!-- 주간 -->
+	<select id="selectMonthSales" parameterType="SalesVo" resultType="SalesVo">
+		select date_format(o.dateOrder, '%Y-%m') AS yearMonth, sum(amt) as amount
+		FROM orders o 
+		WHERE o.itemCode = #{itemCode}
+		  and (o.dateOrder &gt;= #{dateStr} AND o.dateOrder &lt;= #{dateEnd})
+		GROUP BY yearMonth;
+	</select>
+</mapper>

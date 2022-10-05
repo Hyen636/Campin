@@ -1,0 +1,430 @@
+@charset "UTF-8";
+/* #4bc1b1 초록
+   #f8ca37 노랑  
+   #82d5ca 초록호버
+   #fbdb79 노랑호버*/
+   
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	color : #303030;
+}
+li{
+	list-style: none;	
+}
+#camping_input,
+#camping_modify,
+#camping_site_input{
+	width: 1000px;
+	margin-left: 30px;
+}
+
+#camping_site_input{
+	position: relative;
+}
+#camping_input > span,
+#camping_modify > span,
+#camping_site_input .content_title{
+	font-size: 25px;
+	font-weight: 600;
+	color: #f8ca37;
+	margin: 20px 0;
+	display: inline-block;
+}
+#camping_input > form,
+#camping_modify > form{
+	width: 450px;
+}
+#camping_input > form > div,
+#camping_modify > form > div,
+#camping_site_input form > div{
+	margin-bottom: 30px;
+}
+#camping_input > form > div > label,
+#camping_modify > form > div > label,
+#camping_site_input form > div > div > label{
+	display: inline-block;
+	width: 110px;
+	text-align: left;
+	margin: 10px 0;
+	font-size: 0.9em;
+}
+#camping_input > form > div > .filter_label,
+#camping_modify > form > div > .filter_label{
+	width: 300px;
+	color: #f8ca37;
+}
+#camping_input > form > div > input,
+#camping_modify > form > div > input,
+#camping_site_input form > div > div > input{
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 1px #333;
+	font-size: 1em;
+	width: 300px;
+	padding: 2px 10px;
+}
+#camping_input > form > div > input,
+#camping_modify > form > div > input{
+	width: 317px;
+}
+
+#camping_input > form > div > input[name=zipCode],
+#camping_modify > form > div > input[name=zipCode]{
+	width: 210px;
+}
+#camping_input > form > div > .btn_find_zipCode,
+#camping_modify > form > div > .btn_find_zipCode{
+	background: #f8ca37;
+	border: none;
+	border-radius: 8px;
+	padding: 4px 8px;
+	margin-left: 12px;
+	position: relative;
+	bottom: 2px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 0.8em;
+}
+#camping_input > form > div > .btn_map_upload,
+#camping_input > form > div > .btn_photo_upload,
+#camping_modify > form > div > .btn_map_upload,
+#camping_modify > form > div > .btn_photo_upload,
+#camping_site_input  form > div > div > .btn_site_upload{
+	background: #f8ca37;
+	border: none;
+	border-radius: 8px;
+	padding: 4px 8px;
+	margin-left: 12px;
+	position: relative;
+	bottom: 2px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 0.8em;
+	width: 130px;
+	margin : 0;
+	text-align: center;
+}
+#camping_input > form > div > img#pre_map{
+	width: 450px;
+	height: 200px;
+	display: none;
+}
+#camping_modify > form > div > img#pre_map{
+	width: 450px;
+	height: 200px;
+}
+#camping_input > form > div > .preview_map{
+	display:none;
+	font-size: 0.8em;
+	text-align: right;
+	margin: 10px 5px;
+}
+#camping_modify > form > div > .preview_photo img{
+	width: 450px;
+	height: 200px;
+}
+#camping_input > form > div > .preview_photo > div > li,
+#camping_site_input  form > .site .preview_site  div{
+	text-align: right;
+	width: 410px;
+}
+#camping_modify > form > div > .preview_photo > div{
+	width: 450px;
+	text-align: right;
+}
+#camping_input > form > div > .preview_photo > div > li > span,
+#camping_modify > form > div > .preview_photo > div span,
+#camping_site_input  form > .site .preview_site > div > span{
+	display:inline-block;
+	margin: 10px 5px;
+	font-size: 0.8em;
+}
+
+#camping_input > form > div > input[name=title],
+#camping_modify > form > div > input[name=title]{
+	width: 430px;
+}
+#camping_input > form > div > textarea,
+#camping_modify > form > div > textarea,
+#camping_site_input  form > div > div > textarea{
+	border-radius: 10px;
+	padding: 5px 8px;
+}
+#camping_input > form > div > input[type=time],
+#camping_modify > form > div > input[type=time]{
+	width: 150px;
+	letter-spacing: 3px;
+}
+#camping_input > form > div .caution,
+#camping_modify > form > div .caution,
+#camping_site_input  form > div > div .caution{
+	font-size: 0.7em;
+	color: #df2644;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+#camping_input > form > div > .btn_save,
+#camping_input > form > div > .btn_reset,
+#camping_modify > form > div > .btn_modify,
+#camping_modify > form > div > .btn_reset,
+#camping_site_input  .btn_save,
+#camping_site_input  .btn_reset{
+	width: 450px;
+	background: #f8ca37;
+	border: none;
+	border-radius: 15px;
+	font-size: 1.1em;
+	color: #fff;
+	padding: 5px;
+	margin: 7px 0;
+	cursor: pointer;
+}
+#camping_site_input  .btn_save,
+#camping_site_input  .btn_reset{
+	width: 415px;
+}
+#camping_input > form > div > .btn_reset,
+#camping_modify > form > div > .btn_reset
+#camping_site_input  .btn_reset{
+	background: #fff;
+	border: 1px solid #f8ca37;
+	color: #f8ca37;
+}
+
+#camping_input > form > div > .filter > span:not(.caution),
+#camping_modify > form > div > .filter > span:not(.caution){
+	font-weight: 600;
+	font-size: 0.9em;
+	display: inline-block;
+	padding-bottom: 5px;
+}
+#camping_input > form > div > .filter > div,
+#camping_modify > form > div > .filter > div{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 15px;
+	border-top: 1px solid #333;
+	padding-top: 5px;
+}
+#camping_site_input  form > div textarea{
+	width: 410px;
+}
+#camping_input > form > div > .filter > div > input[type="checkbox"],
+#camping_modify > form > div > .filter > div > input[type="checkbox"]{
+	position:absolute; 
+    width:1px; 
+    height:1px; 
+    padding:0; 
+    margin:-1px; 
+    overflow:hidden; 
+    border:0; 
+}
+#camping_input > form > div > .filter > div > input[type="checkbox"] + label,
+#camping_modify > form > div > .filter > div > input[type="checkbox"] + label{
+	display:inline-block; 
+    position:relative; 
+    padding-left:26px; 
+    cursor:pointer; 
+    width: 110px;
+}
+#camping_input > form > div > .filter > div > input[type="checkbox"] + label:before,
+#camping_modify > form > div > .filter > div > input[type="checkbox"] + label:before{ 
+	content:''; 
+    position:absolute; 
+    left:0; 
+    top:3px; 
+    width:18px; 
+    height:18px; 
+    text-align:center; 
+    border:2px solid #7f7f7f; 
+    box-sizing:border-box; 
+}
+#camping_input > form > div > .filter > div > input[type="checkbox"]:checked + label:after,
+#camping_modify > form > div > .filter > div > input[type="checkbox"]:checked + label:after{ 
+	content: '✔'; 
+    position:absolute; 
+    top: -5px; 
+    left: 3px; 
+    color: #f8ca37;
+    font-size: 1.2em;
+    font-weight: 600;
+    width:30px; 
+    height:30px; 
+}
+
+#camping_input > form > div > .filter > div > label,
+#camping_modify > form > div > .filter > div > label{
+	color: #000;
+	font-size: 0.9em;
+	font-weight: 500;
+	width: 80px;
+	position: relative;
+	top: 2px;
+}
+#camping_input > form > div > .filter > .caution,
+#camping_modify > form > div > .filter > .caution{
+	margin: 0;
+	margin-bottom: 15px;
+}
+#camping_input > form > div > .filter .btn_add_option,
+#camping_modify > form > div > .filter .btn_add_option{
+	border: 1px solid #4f4f4f;
+	padding: 3px 11px;
+	background: none;
+	color: #f8ca37;
+	cursor: pointer;
+	font-size: 1.2em;
+	font-weight: 600;
+	margin-bottom: 5px;
+	width: 450px;
+}
+#camping_input > form > div > .filter .btn_remove_option,
+#camping_modify > form > div > .filter .btn_remove_option{
+	border: none;
+	background: none;
+	color: #f8ca37;
+	cursor: pointer;
+	font-size: 0.9em;
+	font-weight: 600;
+	margin-left: 25px;
+}
+#camping_input > form > div > .filter > .extra_fee,
+#camping_modify > form > div > .filter > .extra_fee{
+	display: block;
+}
+#camping_input > form > div > .filter > .extra_fee input,
+#camping_modify > form > div > .filter > .extra_fee input{
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 0 1px #333;
+	font-size: 0.8em;
+	width: 180px;
+	padding: 2px 10px;
+	margin-left: 10px;
+	margin-top: 8px;
+}
+#camping_input > form > div > .filter > .option label,
+#camping_input > form > div > .filter > .extra_fee label,
+#camping_modify > form > div > .filter > .option label,
+#camping_modify > form > div > .filter > .extra_fee label{
+	font-size: 0.8em;
+	width: 35px;
+}
+#camping_input > form > div > .filter input[name=optItem],
+#camping_input > form > div > .filter input[name=price],
+#camping_modify > form > div > .filter input[name=optItem],
+#camping_modify > form > div > .filter input[name=price]{
+	border: none;
+	border-bottom: 1px solid #ccc;
+	font-size: 0.8em;
+	width: 150px;
+	padding: 2px 5px;
+	margin-left: 8px;
+	margin-bottom: 3px;
+}
+#camping_input > form > div > .filter input[name=optItem],
+#camping_modify > form > div > .filter input[name=optItem]{
+	margin-right: 20px;
+}
+#camping_input  #frm_att,
+#camping_modify  #frm_att,
+#camping_site_input #frm_att{
+	display: none;
+}
+#camping_modify .temp_category{
+	display: none;
+}
+#camping_site_input  form > div > .filter{
+	margin-top: 10px;
+	width: 410px;
+}
+#camping_site_input  form > div > .filter > span{
+	padding-bottom: 5px; 
+	display: inline-block;
+	margin-top: 10px;	
+}	
+#camping_site_input  form > div > .filter > div{
+	padding-top: 7px;
+	border-top: 1px solid #ccc;	
+}
+#camping_site_input  form > div > .filter input[type=radio]{
+    display: none;
+}
+#camping_site_input  form > div > .filter input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 75px;
+    border: 1px solid #7f7f7f;
+    line-height: 24px;
+    text-align: center;
+    font-weight:bold;
+    font-size: 13px;
+    background-color: #fff;
+    color: #4f4f4f;
+}
+#camping_site_input  form > div > .filter input[type=radio]:checked+label{
+    background-color: #fbdb79;
+    color: #fff;
+    border: none;
+}
+#camping_site_input form > div .site_img{
+	width: 400px;
+	height: 250px;
+}
+
+#camping_site_input > .site_list{
+	position: absolute;
+	right: 50px;
+	top: 47px;
+}
+#camping_site_input > .site_list > .title {
+	border-bottom: 1px solid #fbdb79;
+}
+#camping_site_input > .site_list > .title > span{
+	font-weight: 600;
+	font-size: 1.1em;
+}
+#camping_site_input > .site_list > .items {
+	overflow: auto;
+	height: 735px;	
+	border-bottom: 1px solid #fbdb79;
+}
+#camping_site_input > .site_list > .items::-webkit-scrollbar {
+    width: 8px;
+}
+#camping_site_input > .site_list > .items::-webkit-scrollbar-thumb {
+    background-color: #fbdb79;
+    border-radius: 10px;
+}
+#camping_site_input > .site_list > .items::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+}
+#camping_site_input > .site_list > .items > .item{
+	cursor: pointer;
+	margin: 5px 0;
+}
+#camping_site_input > .site_list > .items  .item:hover{
+	background: #fbdb79;
+	cursor: pointer;
+}
+#camping_site_input > .site_list > .items  .item:hover > span{
+	color: #fff;	
+}
+#camping_site_input > .site_list span{
+	display: inline-block;
+	text-align: center;
+	padding: 5px;
+}
+
+#camping_site_input > .site_list span.site_name{width: 180px}
+#camping_site_input > .site_list span.site_stay{width: 100px}
+#camping_site_input > .site_list span.site_price{width: 120px}
+#camping_site_input > .site_list span.site_state{width: 100px}
+

@@ -1,0 +1,814 @@
+@charset "UTF-8";
+/*  
+	초록 #4bc1b1;
+	초록호버 #82d5ca;
+	노랑 #f8ca37;
+*/
+
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;		
+}
+
+/* 로그인 */
+
+#user_login{
+	width: 1366px;
+	text-align: center;
+	margin: 30px auto;
+	/*희찬*/
+	min-height: 750px;
+	padding: 70px 0;
+}
+
+#user_login h1{
+	font-size: 25pt;
+	margin-bottom: 30px;
+	color: #4bc1b1;
+}
+
+
+#user_login .login_id, #user_login .login_pwd{
+	width: 300px;
+	height: 50px;
+	border: solid 2px #4bc1b1;
+	border-radius: 15px;
+	margin: auto;
+	margin-bottom: 10px;
+	padding: 5px;
+	text-align:left;
+	padding: 3px 15px;
+	
+}
+
+#user_login input[type=text]{
+	position:relative;
+	vertical-align: middle;
+	font-size: 13pt;
+	margin-left: 15px;
+	width: 220px;
+	border:none;
+}
+
+#user_login input[type=password]{
+	position:relative;
+	top: -5px;
+	vertical-align: middle;
+	font-size: 13pt;
+	margin-left: 10px;
+	width: 220px;
+	border:none;
+}
+
+#user_login input[type=image]{
+	display:inline-block;
+	position:relative;
+	top:5px;
+}
+
+#user_login .btn_login{
+	width: 300px;
+	height: 40px;
+	background-color: #4bc1b1;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-top: 10px;
+}
+
+#user_login .btn_login:hover{
+	background-color: #82d5ca;
+}
+
+#user_login .find_id_pwd{
+	width:300px;
+	margin:10px auto;
+	text-align:right;
+}
+
+#user_login .btn_join{
+	width: 300px;
+	height: 40px;
+	background-color: #fff;
+	color: #4bc1b1;
+	border: solid 2px #4bc1b1;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-top: 10px;
+}
+
+#user_login .btn_kakao_login{
+	border-radius: 10px;
+}
+
+#user_login .btn_kakao_login:hover{
+	cursor: pointer;
+}
+
+#user_login .btn_naver_login{
+	border-radius: 10px;
+	margin-top: 5px;
+	--width: 300px;
+	--height: 46px;
+}
+
+#user_login .btn_naver_login:hover{
+	cursor: pointer;
+}
+
+/* 아이디찾기 / 비밀번호찾기 */
+
+#user_find_id, #user_find_pwd{
+	width: 1366px;
+	text-align: center;
+	margin: 30px auto;
+}
+
+#user_find_id h1, #user_find_pwd h1{
+	font-size: 25pt;
+	margin-bottom: 20px;
+	color: #4bc1b1;
+}
+
+#user_find_id, #user_find_pwd{
+	width: 400px;
+	margin: 50px auto;
+}
+
+#user_find_id > .frm_user_find_id,
+#user_find_pwd > .frm_user_find_pwd{
+	padding: 10px 20px;
+}
+#user_find_id > .frm_user_find_id > .certify,
+#user_find_pwd > .frm_user_find_pwd > .certify{
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+#user_find_pwd > .frm_user_find_pwd > .certify{
+	width: 350px;
+	height: 50px;
+	background: #fff;
+	border: none;
+	text-align: center;
+	line-height: 50px;
+	border-bottom: 2px solid #4bc1b1;
+	font-size: 0.9em;
+}
+#user_find_id > .frm_user_find_id > .certify > .btn_phone,
+#user_find_id > .frm_user_find_id > .certify > .btn_email{
+	width: 175px;
+	height: 50px;
+	background: #fff;
+	border: none;
+	cursor: pointer;
+	font-size: 0.9em;
+}
+#user_find_id > .frm_user_find_id > .certify > .btn_phone{
+	border-bottom: 2px solid #4bc1b1;
+}
+#user_find_id > .frm_user_find_id .findIdEmail,
+#user_find_id > .frm_user_find_id .findIdPhone,
+#user_find_id > .frm_user_find_id .findIdName{
+	width: 320px;
+	height: 50px;
+	border: solid 2px #4bc1b1;
+	border-radius: 15px;
+	margin: auto;
+	margin-bottom: 10px;
+	padding: 5px;
+	text-align:left;
+	padding: 3px 15px;	
+}
+
+#user_find_id > .frm_user_find_id .findIdEmail{
+	display: none;	
+}
+
+#user_find_id > .frm_user_find_id .label_group,	
+#user_find_pwd > .frm_user_find_pwd .label_group{
+	width: 320px;
+	height: 50px;
+	border: solid 2px #4bc1b1;
+	border-radius: 15px;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 5px;
+	text-align:left;
+	padding: 3px 15px;		
+}
+#user_find_id > .frm_user_find_id label,
+#user_find_pwd > .frm_user_find_pwd label{
+	display: inline-block;
+	width: 70px;
+	font-size: 1em;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+#user_find_id > .frm_user_find_id input[type=text],
+#user_find_pwd > .frm_user_find_pwd input[type=text]{
+	position:relative;
+	vertical-align: middle;
+	font-size: 13pt;
+	margin-left: 15px;
+	width: 220px;
+	border:none;
+}
+#user_find_id > .frm_user_find_id span,
+#user_find_pwd > .frm_user_find_pwd span{
+	position: relative;
+	bottom: -6px;
+	margin-left: 45px;
+	font-size: 10px; 
+	font-size: 0.5em; 
+	color: #dd3115;
+	font-weight: bold;
+}
+#user_find_id > .frm_user_find_id .btns,
+#user_find_pwd > .frm_user_find_pwd .btns{
+	margin: 20px 0;
+	text-align: center;
+}
+#user_find_id > .frm_user_find_id .btns button,
+#user_find_pwd > .frm_user_find_pwd .btns button{
+	width: 320px;
+	height: 45px;
+	background: #fff;
+	border: 1px solid #4bc1b1;
+	border-radius: 7px;
+	cursor: pointer;
+	padding: 3px 10px;
+	color: #4bc1b1;
+	font-size: 1.2em;
+	margin: 10px 0;
+}
+#user_find_id > .frm_user_find_id .btns #btnFindId,
+#user_find_pwd > .frm_user_find_pwd .btns #btnFindPwd{
+	color: #fff;
+	background : #4bc1b1;
+}
+
+#user_find_id img, #user_find_pwd img{
+	display:inline-block;
+	position:relative;
+	top:5px;
+}
+
+/* 아이디/비밀번호 찾기 결과 페이지 */
+
+#user_find_id_result,
+#user_find_pwd_result {
+	width: 340px;
+	margin: 50px auto;
+}
+#user_find_id_result > h4,
+#user_find_pwd_result > h4{
+	color: #000;
+}
+#user_find_id_result > span.guide,
+#user_find_pwd_result > span.guide{
+	font-size: 0.8em;
+	color: #999;
+}
+#user_find_id_result > div.result > span,
+#user_find_pwd_result > div.result > span{
+	display: inline-block;
+	margin: 20px 0;
+}
+
+#user_find_id_result > div.result > button,
+#user_find_pwd_result  div.result > button{
+	width: 240px;
+	height: 37px;
+	background: #4bc1b1;
+	border: 1px solid #4bc1b1;
+	border-radius: 7px;
+	cursor: pointer;
+	padding: 3px 10px;
+	color: #fff;
+	font-size: 1.2em;
+	margin: 10px 0;
+}
+#user_find_id_result > div.result > button:hover,
+#user_find_pwd_result  div.result > button:hover{
+	background: #82d5ca;
+}
+
+/* 회원가입 */
+
+#user_join{
+	width: 1366px;
+	text-align: center;
+	margin: 30px auto;
+}
+
+#user_join h1{
+	font-size: 25pt;
+	margin-bottom: 30px;
+	color: #4bc1b1;
+ 	padding-bottom: 25px;
+}
+
+#user_join .user_join_input{
+	width: 500px;
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: left;
+}
+
+#user_join .user_join_input label{
+	display:inline-block;
+	width: 150px;
+	text-align: left;
+	--margin-bottom: 20px;
+}
+#user_join .user_join_input input[type='text'], input[type='password']{
+	width: 240px;
+}
+
+#user_join .user_join_input .label_group{
+	margin-top: 5px;
+}
+
+#user_join .user_join_input span{
+	position: relative;
+	bottom: 5px;
+	margin-left: 155px;
+	text-align: left;
+	font-size: 11px;
+	--font-weight: bold;
+	color: #dd3115;
+}
+
+#user_join .user_join_input .gender{
+	display:inline-block;
+	width:50px;
+	margin-bottom: 20px;
+}
+
+#user_join .user_join_terms{
+	width: 750px;
+	margin: 0 auto;
+	margin-top: 80px;
+	position:relative;
+}
+
+#user_join .user_join_terms .terms{
+	position: absolute;
+	left:0;
+}
+
+#user_join .user_join_terms .yes{
+	position:absolute;
+	right:0;
+}
+
+#user_join .user_join_terms .yes_all{
+	display:inline-block;	
+	text-align:center;
+	margin-top: 30px;
+}
+
+#user_join textarea{
+	width: 750px;
+	height: 200px;
+	resize: none;
+	margin-top: 20px;
+}
+
+#user_join h3{
+	margin-top: 10px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#user_join .btn_join{
+	width: 350px;
+	height: 40px;
+	background-color: #4bc1b1;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-top: 40px;
+}
+
+/* 카카오 회원가입 */
+
+#user_join_kakao{
+	width: 1366px;
+	text-align: center;
+	margin: 30px auto;
+}
+#user_join_kakao h1{
+	font-size: 25pt;
+	margin-bottom: 30px;
+	color: #4bc1b1;
+ 	padding-bottom: 25px;
+}
+#user_join_kakao .reminder{
+	font-size: 13px;
+	--margin-bottom: 30px;
+ 	--padding-bottom: 25px;
+}
+#user_join_kakao .user_join_input{
+	width: 500px;
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: left;
+}
+#user_join_kakao .user_join_input label{
+	display:inline-block;
+	width: 150px;
+	text-align: left;
+	--margin-bottom: 20px;
+}
+#user_join_kakao .user_join_input input[type='text'], input[type='password']{
+	width: 240px;
+}
+#user_join_kakao .user_join_input .label_group{
+	margin-top: 5px;
+	margin-left: 10px;
+}
+#user_join_kakao .user_join_input span{
+	position: relative;
+	bottom: 5px;
+	margin-left: 155px;
+	text-align: left;
+	font-size: 11px;
+	--font-weight: bold;
+	color: #dd3115;
+}
+#user_join_kakao .btn_join_kakao{
+	width: 350px;
+	height: 40px;
+	background-color: #4bc1b1;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-top: 40px;
+}
+#user_join_kakao .btn_join_kakao2{
+	width: 350px;
+	height: 40px;
+	background-color: #fff;
+	color: #4bc1b1;
+	border: 1px solid #4bc1b1;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-top: 10px;
+}
+
+/* 회원정보 수정 */
+
+#user_modify{
+	width: 900px;
+	text-align: center;
+	margin: 30px auto;
+}
+
+#user_modify h1{
+	font-size: 25pt;
+	margin-bottom: 50px;
+	color: #4bc1b1;
+	padding-bottom: 20px;
+}
+
+#user_modify label{
+	display:inline-block;
+	width: 150px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+#user_modify .user_modify_input{
+	width: 450px;
+	margin: 0 auto;
+	--margin-top: 50px;
+	text-align: left;
+	
+}
+#user_modify .gender{
+	display:inline-block;
+	width:50px;
+	margin-bottom: 20px;
+}
+
+#user_modify .btn_user_pwd_modify{
+	width: 100px;
+	height: 30px;
+	background-color: #4bc1b1;
+	color: #fff;
+	border: none;
+	border-radius:5px;
+	font-size: 10pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+
+#user_modify .btn_user_modify{
+	width: 80px;
+	height: 40px;
+	background-color: #4bc1b1;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+
+#user_modify .user_modify_input input[type='text']{
+	width: 295px;
+}
+
+#user_modify .user_modify_input span{
+	position: relative;
+	bottom: 17px;
+	margin-left: 155px;
+	text-align: left;
+	font-size: 12px;
+	--font-weight: bold;
+	color: #dd3115;
+}
+
+#user_modify .user_modify_input .readonly{
+	background-color: #eee;
+	border: 1px solid #747474;
+}
+
+#user_modify .btn_cancel {
+	width: 80px;
+	height: 40px;
+	color: #4bc1b1;
+	border:solid 1px #4bc1b1;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	background-color: #fff;
+	margin-right: 20px;
+}
+
+#user_modify .btn_user_remove_account{
+	width: 80px;
+	height: 40px;
+	color: #4bc1b1;
+	border:solid 1px #4bc1b1;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	background-color: #fff;
+}
+
+#user_modify .btns{
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 30px;
+	text-align: center;
+}
+
+
+/* 비밀번호 변경 */
+
+#user_pwd_modify{
+	width: 900px;
+	text-align: center;
+	margin: 30px auto;
+}
+
+#user_pwd_modify h1{
+	font-size: 25pt;
+	margin-bottom: 50px;
+	color: #4bc1b1;
+	padding-bottom: 20px;
+}
+
+#user_pwd_modify label{
+	display:inline-block;
+	width: 150px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+#user_pwd_modify .user_modify_input{
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: left;
+}
+
+#user_pwd_modify .frm_user_pwd_modify span{
+	position: relative;
+	bottom: 17px;
+	margin-left: 205px;
+	text-align: left;
+	font-size: 12px;
+	--font-weight: bold;
+	color: #dd3115;
+}
+
+#user_pwd_modify #checkOldPwd{
+	position: relative;
+	bottom: 17px;
+	margin-left: 210px;
+	text-align: left;
+	font-size: 12px;
+	--font-weight: bold;
+	color: #dd3115;
+}
+
+#user_pwd_modify #pwdCheckValidation{
+	position: relative;
+	bottom: 17px;
+	margin-left: 265px;
+	text-align: left;
+	font-size: 12px;
+	--font-weight: bold;
+	color: #dd3115;
+}
+
+#user_pwd_modify .btn_user_pwd_modify{
+	width: 80px;
+	height: 40px;
+	background-color: #4bc1b1;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	--margin-right: 255px;
+	margin-top: 40px;
+	cursor: pointer;
+}
+
+/* 회원 탈퇴 */
+
+#user_remove_account{
+	width: 900px;
+	text-align: center;
+	margin-left: 70px;
+	padding: 50px;
+	--background-color: #ecf9f8;
+}
+
+#user_remove_account h1{
+	font-size: 25pt;
+	margin-bottom: 50px;
+	color: #4bc1b1;
+}
+
+#user_remove_account .notice{
+	display: block;
+	text-align: left;
+	color: #ff8080;
+}
+
+#user_remove_account .h4_first{
+	margin-top: 0px;
+}
+
+#user_remove_account h4 {
+	text-align: left;
+	margin-top: 20px;
+}
+
+#user_remove_account .h4_password{
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+
+#user_remove_account span{
+	position: relative;
+	display: block;
+	text-align: left;
+	border-bottom: solid 1px #c0c0c0;
+	padding-bottom: 20px;
+}
+
+#user_remove_account input[type=password], #user_remove_account select,
+#user_remove_account textarea{
+	position: relative;
+	display: block;
+	text-align:left;
+}
+
+#user_remove_account .terms{
+	width: 750px;
+	height: 200px;
+	resize: none;
+	margin-top: 20px;
+	padding: 20px;
+}
+
+#user_remove_account .etc{
+	width: 300px;
+	height: 80px;
+	resize: none;
+}
+
+#user_remove_account .btn_user_remove_account{
+	width: 100px;
+	height: 40px;
+	background-color: #4bc1b1;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-right: 20px;
+	margin-top: 40px;
+}
+
+/* 카카오 회원 탈퇴 */
+
+#user_remove_account_kakao{
+	width: 900px;
+	text-align: center;
+	margin-left: 70px;
+	padding: 50px;
+	--background-color: #ecf9f8;
+}
+
+#user_remove_account_kakao h1{
+	font-size: 25pt;
+	margin-bottom: 50px;
+	color: #4bc1b1;
+}
+
+#user_remove_account_kakao .notice{
+	display: block;
+	text-align: left;
+	color: #ff8080;
+}
+
+#user_remove_account_kakao .h4_first{
+	margin-top: 0px;
+}
+
+#user_remove_account_kakao h4 {
+	text-align: left;
+	margin-top: 20px;
+}
+
+#user_remove_account_kakao span{
+	position: relative;
+	display: block;
+	text-align: left;
+	border-bottom: solid 1px #c0c0c0;
+	padding-bottom: 20px;
+}
+
+#user_remove_account_kakao select,
+#user_remove_account_kakao textarea{
+	position: relative;
+	display: block;
+	text-align:left;
+}
+
+#user_remove_account_kakao .terms{
+	width: 750px;
+	height: 200px;
+	resize: none;
+	margin-top: 20px;
+	padding: 20px;
+}
+
+#user_remove_account_kakao .etc{
+	width: 300px;
+	height: 80px;
+	resize: none;
+}
+
+#user_remove_account_kakao .btn_user_remove_account{
+	width: 100px;
+	height: 40px;
+	background-color: #4bc1b1;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-right: 20px;
+	margin-top: 40px;
+}

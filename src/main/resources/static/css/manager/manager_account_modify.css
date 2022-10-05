@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+*{
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;		
+}
+#manager_account_modify{
+	width: 1000px;
+	margin: 0px auto;
+	text-align: center;
+}
+#manager_account_modify > .frm_manager_modify > .frm_title{
+	text-align: center;
+	font-size: 25pt;
+	font-weight: bold;
+	color: #f8ca37;
+	padding-bottom: 25px;
+	width: 300px;
+}
+#manager_account_modify label{
+	display:inline-block;
+	width: 150px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+#manager_account_modify .manager_modify_inputs{
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 30px;
+	text-align: left;
+}
+#manager_account_modify input{
+	width: 180px;
+	border: 1px solid #4f4f4f;
+}
+#manager_account_modify .gender{
+	display : inline-block;
+	width : 88px;
+	margin-bottom : 20px;
+	text-align: center;
+}
+input[type=radio]{
+    display: none;
+}
+input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 90px;
+    border: 1px solid #333;
+    line-height: 22px;
+    text-align: center;
+    font-weight:bold;
+    font-size: 12px;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+}
+input[type=radio]:checked+label{
+    background-color: #f8ca37;
+    color: #fff;
+    border: none;
+}
+#manager_account_modify .btn_manager_pwd_modify{
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	font-size: 0.8em;
+	padding: 3px 15px;
+	width: 180px;	
+	cursor: pointer;
+}
+#manager_account_modify .btns{
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 5px;
+	text-align: left;
+}
+#manager_account_modify .btn_manager_modify,
+#manager_account_modify .btn_cancel{
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	width: 155px;
+	border-radius: 10px;
+	font-size: 0.9em;
+	padding: 3px 15px;
+	vertical-align: middle;
+	margin-right: 20px;
+	cursor: pointer;
+}
+#manager_account_modify .btn_cancel{
+	background-color: #fff;
+	color: #f8ca37;
+	border: 1px solid #f8ca37;
+	margin: 0;
+}
+/**/
+#manager_account_modify .btn_manager_modify:hover,
+#manager_account_modify .btn_manager_pwd_modify:hover{
+	background-color: #fbdb79;
+	cursor: pointer;
+}
+#manager_account_modify .btn_cancel:hover{
+	background-color: #f8ca37;
+	color: #fff;
+	cursor: pointer;
+}

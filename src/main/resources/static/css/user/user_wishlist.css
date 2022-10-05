@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+*{
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;		
+}
+#user_wishlist{
+	width: 900px;
+	margin: 0px auto;
+	text-align: center;
+}
+#user_wishlist > .camp_name{
+	text-align: center;
+	font-size: 25pt;
+	font-weight: bold;
+	color: #4bc1b1;
+}
+#user_wishlist > .content {
+   display: inline-block;
+   margin: 0 10px;
+   margin-bottom: 20px;
+   width: 273px;
+   border: none;
+   border-radius: 15px;
+   box-shadow: 0 0 3px #777;
+   position: relative;   
+   cursor: pointer;
+   text-align: left;
+}
+#user_wishlist > .content > .frm_wishlist_content > .not_wish{
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   width: 25px;
+   height: 25px;
+}
+#user_wishlist > .content > .frm_wishlist_content > .not_wish:hover{
+	top: 7px;
+	right: 7px;
+	width: 30px;
+	height: 30px;	
+}
+#user_wishlist > .content > .frm_wishlist_content > .wish{ /* 없앨 예정 */
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   width: 25px;
+   height: 25px;
+}
+#user_wishlist > .content > .frm_wishlist_content > .wish:hover{ /* 없앨 예정 */
+	top: 7px;
+	right: 7px;
+	width: 30px;
+	height: 30px;	
+}
+#user_wishlist > .content > .frm_wishlist_content > .best_img{
+   width: 273px;
+   height: 200px;
+   border-radius: 15px;
+}
+#user_wishlist > .content > .frm_wishlist_content > span{
+   position: absolute;
+   display: inline-block;
+   width: 230px;
+   top: 175px;
+   right: 10px;
+   text-align: right;
+   font-size: 0.8em;
+   font-weight: 600;
+   color: #fff;
+}
+#user_wishlist > .content > .frm_wishlist_content > div{
+   margin: 10px 15px;
+   text-align: left;
+}
+#user_wishlist > .content > .frm_wishlist_content > div > .titleText{
+   font-size: 1.1em;
+   font-weight: 600;
+   --height: 50px;
+}
+#user_wishlist > .content > .frm_wishlist_content > div > .infoText{
+   font-size: 0.8em;
+   overflow: hidden; /* 일정 넓이가 넘어서는 내용에 대해서는 보이지 않게 처리함 */
+   text-overflow: ellipsis; /* 글자가 넓이 70px를 넘을 경우 생략부호를 표시함 */
+   white-space:nowrap; /* 공백문자가 있는 경우 줄바꿈하지 않고 한줄로 나오게 처리함 (\A로 줄바꿈가능) */
+}
+#user_wishlist > .content > .frm_wishlist_content > div > img{
+   width: 20px;
+   height: 20px;
+   margin: 7px 7px 0 0;
+}
+#user_wishlist > .btn_more_wishes{
+	border: 3px solid #4bc1b1;
+	border-radius: 10px;
+	background-color: #fff;
+	color: #4bc1b1;
+	width: 350px;
+	height: 50px;
+	text-align: center;
+	font-size: 18px;
+	margin: 0 auto;
+}
+#user_wishlist > .btn_more_wishes:hover{
+	background-color: #4bc1b1;
+	color: #fff;
+	cursor: pointer;
+}
+
+#user_wishlist .null1{
+	margin-top: 80px;
+	display:bolck;
+}
+
+#user_wishlist .null2{
+	margin-top: 20px;
+}

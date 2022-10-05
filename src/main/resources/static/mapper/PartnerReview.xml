@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace='com.campin.mybatis.PartnerReviewMapper'>
+	<select id="selectReview" parameterType="ReviewVo" resultType="ReviewVo">
+		select * from review r join `user` u  join orders o 
+		where r.userCode = u.userCode  
+		and r.orderCode = o.orderCode 
+		and r.itemCode=${itemCode}
+		and r.seq=${seq}
+		<if test="state!=null">
+		and r.state=#{state}
+		</if>
+		order by r.${type} ${sort}
+	</select>
+	
+	<select id="selectReviewAns" parameterType="ReviewVo" resultType="String">
+		select doc from review
+		where orderCode=#{orderCode}
+		and seq=1
+	</select>
+	
+	<select id="selectOne" parameterType="Integer" resultType="ReviewVo">
+		select * from review r join `user` u  join orders o 
+		where r.userCode = u.userCode  
+		and r.orderCode = o.orderCode 
+		and r.sno=#{sno}
+	</select>
+	
+	<insert id="insertAnswer" parameterType="RequestVo">
+      insert into review(orderCode,userCode,seq,nal,itemCode,doc,state)
+      values(${orderCode},${userCode},1,#{nal},#{itemCode},#{doc},"답변완료")        
+   </insert>
+	
+	<update id="updateAnswer" parameterType="ReviewVo" >
+		update review set doc=#{doc}, state=#{state}
+		where orderCode=#{orderCode}
+		and seq=1
+	</update>
+	
+	<update id="updateReview" parameterType="ReviewVo" >
+		update review set state=#{state}
+		where orderCode=#{orderCode}
+		and seq=0
+	</update>
+	
+	<delete id="deleteAnswer" parameterType="ReviewVo" >
+		delete from review
+		where orderCode=#{orderCode}
+		and seq=1
+	</delete>
+	
+</mapper>

@@ -1,0 +1,358 @@
+@charset "UTF-8";
+
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	color : #303030;
+}
+a{
+	text-decoration: none;
+}
+/*manager_main*/
+#manager_main{
+	width : 1366px;
+	margin : 0 auto;
+	display : flex;
+	border-right : 1px solid #f8ca37;
+}
+#manager_main .manager_sub .logo{
+	padding : 50px;
+	color : #fff;
+	margin-bottom : 10px;
+}
+#manager_main .manager_sub{
+	background-color : #f8ca37;
+	height : 100vh;
+	width : 250px;
+	display : inline-block;
+	margin-right : 30px;
+	position : sticky;
+	top : 0;
+}
+#manager_main .manager_sub .icon{
+	width : 80px;
+	margin : 0px auto;
+}
+#manager_main .manager_sub .icon img{
+	width : 50px;
+	margin : 10px;
+}
+#manager_main .manager_menu .manager_id{
+	width : 150px;
+	margin : 20px auto;
+}
+#manager_main .manager_menu .manager_id span{
+	color : #fff;
+	font-size : 1em;
+}
+
+#manager_main .manager_menu .manager_id button{
+	background-color :  #fff;
+	color : #f8ca37;
+	border : none;
+	border-radius : 10px;
+	padding : 3px 10px;
+	cursor : pointer;
+	font-size : 0.8em;
+	margin-left : 10px;
+	position : relative;
+	bottom : 1px;
+}
+#manager_main .manager_menu .manager_id button:hover{
+	cursor : pointer;
+	background-color : #fad76d;
+}
+#manager_main .manager_menu ul{
+	margin-left : 30px;
+	margin-top : 10px;
+	width: 190px;
+	list-style: none;
+	display : inline-block;
+	line-height : 3em;
+}
+#manager_main .manager_sub .manager_menu ul li{
+	color : #fff;
+	text-align : left;
+}
+#manager_main .manager_sub .manager_menu ul li:hover{
+	cursor : pointer;
+	color: #FF8040;
+}
+#manager_main .today_notice{
+	border-bottom : 1px solid #f8ca37;
+	--border-radius : 10px;
+	padding : 10px;
+	width : 900px;
+	margin : 20px;
+	display : inline-block;
+}
+#manager_main .today_notice ul li{
+	display : inline-block;
+	padding : 3px;
+}
+#manager_main .today_notice ul li span:hover{
+	cursor: pointer;
+	color: #FF8040;
+}
+#manager_main .manager_menu ul li:nth-child(7){
+	margin-top : 10px;
+	padding-top: 5px;
+	border-top : 1px solid #fff;
+}
+#manager_main .manager_content{
+	width : 1000px;
+	display : inline-block;
+}
+
+/* manager_request_input*/
+#manager_request_input{
+	width : 900px;
+	margin : 0 auto;
+}
+
+#manager_request_input #frm_manager_request_input{
+	width : 650px;
+	border : 1px solid #ccc;
+	border-radius : 10px;
+	padding : 20px;
+	margin : 10px auto;
+	line-height : 2em;
+}
+#manager_request_input #frm_manager_request_input label,
+#manager_request_input #frm_manager_request_input span{
+	font-size: 0.8em;
+}
+#manager_request_input #frm_manager_request_input textarea{
+	width: 570px;
+	height: 120px;
+	padding: 5px 8px;
+	margin-left: 20px;	
+}
+#manager_request_input h2{
+	text-align : center;
+	margin : 5px;
+	padding : 10px; 
+	color :  #f8ca37;
+}
+
+#manager_request_input .frm_manager_request_input .review_att{
+	width : 600px;
+	height : 200px;
+	border : 1px solid #ccc;
+	margin : 10px auto 30px auto;
+}
+#manager_request_input label{
+	display : inline-block;
+	width : 100px;
+	text-align : left;
+	margin-left : 20px;
+}
+
+#manager_request_input .frm_manager_request_input input[type=date]{
+	width : 219px;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#manager_request_input .frm_manager_request_input select{
+	width : 219px;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+
+#manager_request_input .frm_manager_request_input input[type=text]{
+	border : none;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#manager_request_input .frm_manager_request_input input[name=pid]{
+	width : 222x;
+	border : none;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#manager_request_input .frm_manager_request_input input[name=subject]{
+	width : 400px;
+	border : none;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#manager_request_input .frm_manager_request_input textarea[name=doc]{
+	display : inline-block;
+	width : 400px;
+	height : 200px;
+	margin-top : -27px;
+	border : none;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#manager_request_input .frm_manager_request_input textarea[name=doc2]{
+	display : inline-block;
+	width : 400px;
+	height : 100px;
+	margin-top : -27px;
+	border : none;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#user_qna_input .frm_user_qna_input .btns_input{
+	padding : 30px;
+}
+
+#manager_request_input .btns_request{
+	width : 400px;
+	margin : 20px auto 10px;
+	text-align : center;
+}
+#manager_request_input .btns_confirm{
+	margin : 20px auto;
+	text-align : center;
+}
+
+#manager_request_input .btns_request button{
+	background-color : #f8ca37;
+	color : #fff;
+	width : 80px;
+	padding : 0px 0px;
+	border-radius : 10px;
+	border : none;
+}
+#manager_request_input .btns_confirm button{
+	background-color : #f8ca37;
+	color : #fff;
+	width : 570px;
+	padding : 5px 0px;
+	border-radius : 10px;
+	border : none;
+	margin: 10px;
+	font-weight: 600;
+	font-size: 0.9em;
+	cursor: pointer;
+}
+#manager_request_input .btns_confirm button.btn_reject,
+#manager_request_input .btns_confirm button.btn_cancel{
+	background: #fff;
+	border: 1px solid #f8ca37;
+	color: #f8ca37;
+}
+#manager_request_input .hidden{
+	display: none;
+}
+/* manager_request_modify*/
+#manager_request_modify{
+	width : 900px;
+	margin : 0 auto;
+}
+#manager_request_modify .frm_manager_request_modify{
+	width : 650px;
+	border : 1px solid #ccc;
+	border-radius : 10px;
+	padding : 20px;
+	margin : 10px auto;
+	line-height : 2em;
+}
+
+#manager_request_modify h2{
+	text-align : center;
+	margin : 5px;
+	padding : 10px; 
+	color :  #f8ca37;
+}
+
+#manager_request_modify .frm_manager_request_modify .review_att{
+	width : 600px;
+	height : 200px;
+	border : 1px solid #ccc;
+	margin : 10px auto 30px auto;
+}
+#manager_request_modify label{
+	display : inline-block;
+	width : 100px;
+	text-align : left;
+	margin-left : 20px;
+}
+
+#manager_request_modify .frm_manager_request_modify modify[type=date]{
+	width : 219px;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#manager_request_modify .frm_manager_request_modify select{
+	width : 219px;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+
+#manager_request_modify .frm_manager_request_modify modify[type=text]{
+	border : none;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#manager_request_modify .frm_manager_request_modify modify[name=pid]{
+	width : 222x;
+	border : none;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#manager_request_modify .frm_manager_request_modify modify[name=subject]{
+	width : 400px;
+	border : none;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#manager_request_modify .frm_manager_request_modify textarea[name=doc]{
+	display : inline-block;
+	width : 400px;
+	height : 200px;
+	margin-top : -27px;
+	border : none;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#manager_request_modify .frm_manager_request_modify textarea[name=doc2]{
+	display : inline-block;
+	width : 400px;
+	height : 100px;
+	border : none;
+	border : 1px solid #ccc;
+	padding : 3px;
+}
+#user_qna_modify .frm_user_qna_modify .btns_modify{
+	padding : 30px;
+}
+
+#manager_request_modify .btns_request{
+	width : 400px;
+	margin : 20px auto 10px;
+	text-align : center;
+}
+#manager_request_modify .btns_confirm{
+	width : 500px;
+	margin : 50px auto 20px auto;
+	text-align : center;
+}
+
+#manager_request_modify .btns_request button{
+	background-color : #f8ca37;
+	color : #fff;
+	width : 80px;
+	padding : 10px;
+	border-radius : 10px;
+	border : none;
+}
+#manager_request_modify .btns_request button:hover,
+#manager_request_modify .btns_confirm button:hover
+{
+	cursor : pointer;
+	background-color : #fad76d;
+}
+
+#manager_request_modify .btns_confirm button{
+	background-color : #f8ca37;
+	color : #fff;
+	width : 80px;
+	padding : 10px;
+	border-radius : 10px;
+	border : none;
+}

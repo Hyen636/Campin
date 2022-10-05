@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campin.mybatis.UserWishlistMapper">
+
+
+<select id="selectUser" parameterType="Integer" resultType="UserWishlistVo">
+	select w.itemCode, i.iName, i.sido, i.infoText, i.state, ia.sysFile, (select min(price) from itemdetail id where w.itemCode = id.itemCode) as price
+	from wishlist w
+	join item i on w.itemCode = i.itemCode
+	join itematt ia on ia.itemCode = w.itemCode
+	join itemdetail id on id.itemCode = w.itemCode
+	where w.userCode = #{userCode}
+	and ia.itemType = 'WH';
+</select>
+
+<select id="selectPrice" parameterType="Integer" resultType="UserWishlistVo">
+	select w.itemCode, (select min(price) from itemdetail id where w.itemCode = id.itemCode) as price
+	from wishlist w
+	join itemdetail id on id.itemCode = w.itemCode
+	where w.userCode = #{userCode}
+	group by itemCode;
+</select>
+
+<delete id="deleteWish" parameterType="UserWishlistVo">
+	delete from wishlist
+	where userCode = #{userCode} and itemCode = #{itemCode}
+</delete>
+
+</mapper>

@@ -1,0 +1,895 @@
+@charset "UTF-8";
+
+/* 캠핑장 상세보기 */
+
+/* #4bc1b1 초록
+   #f8ca37 노랑  */
+*{
+	--margin: 0px auto;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;		
+}
+#user_search_detail{
+	width: 1366px;
+	margin: 0px auto;
+	--text-align: center;
+}
+#user_search_detail > .search_detail_box{
+	display: inline-block;
+	width: 850px;
+}
+
+/* 대표사진 */
+#user_search_detail > .imgs{
+	padding-top: 25px;
+	text-align: center;
+}
+#user_search_detail > .imgs > .img{
+	padding: 0 10px;
+}
+
+/* 캠핑장 이름 */
+#user_search_detail > .camp_detail{
+	--margin-left: 300px;
+	margin-bottom: 15px;
+}
+#user_search_detail > .camp_detail .camp_name{
+	font-size: 25pt;
+	font-weight: bold;
+}
+
+/* TO THE TOP */
+#user_search_detail > .sticky_box{
+	float: right;
+	width: 470px;
+ 	height: 525px;
+	position: -webkit-sticky;
+ 	position: sticky;
+ 	top: 200px;
+	left: 1160px;
+	margin-left: 40px;
+	padding-bottom: 30px;
+}
+#user_search_detail .btn_top{
+	--position: absolute;
+	border: 2px solid #4bc1b1;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #4bc1b1;
+	font-size: 17px;
+	width: 80px;
+	height: 30px;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: 390px;
+}
+#user_search_detail .btn_top:hover{
+	background-color: #4bc1b1;
+	color: #fff;
+	cursor: pointer;
+}
+
+/* 예약하기 박스 */
+#user_search_detail .reservation{
+	--float: right;
+	border: 4px solid #4bc1b1;
+	border-radius: 8px;
+	--width: 470px;
+ 	height: 525px;
+	--position: -webkit-sticky;
+ 	--position: sticky;
+ 	--top: 250px;
+	--left: 1160px;
+	--margin-left: 40px;
+	--padding: 20px;
+	--padding-bottom: 30px;
+	padding-top: 20px;
+	padding-left: 20px;
+}
+#user_search_detail .reservation > .reservation_title{
+	color: #4bc1b1;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 160px;
+}
+#user_search_detail .reservation > .reservation_inputs{
+	margin-left: 50px;
+	font-size: 20px;
+}
+#user_search_detail .reservation > .reservation_inputs .reservation_subtitle{
+	font-size: 20px;
+	font-weight: bold;
+	padding-top: 10px;
+	margin-bottom: 10px;
+}
+#user_search_detail .reservation > .reservation_inputs input{
+	--border: 1px solid #4bc1b1;
+}
+#user_search_detail .reservation > .reservation_inputs input[type="date"]{
+	width: 260px;
+	margin-left: 10px;
+	margin-bottom: 5px;
+}
+#user_search_detail .reservation > .reservation_inputs .minus_icon{
+	margin-left: 15px;
+}
+#user_search_detail .reservation > .reservation_inputs .plus_icon:hover, .minus_icon:hover{
+	cursor: pointer;
+}
+#user_search_detail .reservation > .reservation_inputs select{
+	width: 220px;
+	height: 25px;
+	margin-bottom: 10px;
+}
+#user_search_detail .reservation > .reservation_inputs .num_adult, .num_child{
+	border: none;
+	text-align: center;
+}
+#user_search_detail .reservation > .reservation_inputs input[name="tot_amt"]{
+	width: 220px;
+	margin-left: 43px;
+	margin-top: 10px;
+}
+#user_search_detail .reservation > .reservation_inputs hr{
+	border: 1px solid #4bc1b1;
+	background-color: #4bc1b1;
+	margin: 10px 0px;
+	width: 325px;
+}
+#user_search_detail .reservation > .btn_reservation{
+	border: 1px solid #4bc1b1;
+	border-radius: 5px;
+	background-color: #4bc1b1;
+	color: #fff;
+	font-size: 23px;
+	font-weight: bold;
+	width: 330px;
+	height: 40px;
+	text-align: center;
+	margin: 0px auto;
+	margin-left: 45px;
+	margin-top: 5px;
+}
+#user_search_detail .reservation > .btn_reservation:hover{
+	background-color: #82d5ca;
+	cursor: pointer;
+}
+#user_search_detail .reservation > .item_css{
+	--position: absolute;
+}
+#user_search_detail .reservation > .ea_btns{
+	--top: 30px;
+	--right: 150px;
+}
+#user_search_detail .reservation > .ea_btns > .item_ea{
+	display: inline-block;
+	width: 24px;
+	text-align: center;
+}
+
+/* 카테고리 */
+#user_search_detail > .search_detail_box > .desc_category{
+	background-color: #4bc1b1;
+	width: 800px;
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 8px;
+}
+#user_search_detail > .search_detail_box > .desc_category img{
+   position: absolute;
+   --top: 10px;
+   left: 1025px;
+   width: 25px;
+   height: 25px;
+}
+
+/* 달력 */
+#user_search_detail > .search_detail_box > .calendar_detail{
+	width: 700px;
+	padding: 50px;
+	margin-right: 600px;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 78px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    width: 700px;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail .year-month_detail{
+    width: 700px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    line-height:1;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail .year-month_detail span.month_detail{
+	display: inline-block;
+	color:#4bc1b1;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail .prev_detail,
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail .next_detail{
+    width:40px;
+    height:44px;
+    font-size:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail .prev_detail::before,
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail .next_detail::before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border:solid #000;
+    border-color:#4bc1b1;
+    border-width: 3px 3px 0 0;
+    transition: border 0.1s;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail .prev_detail:hover::before,
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail .next_detail:hover::before{
+    border-color:#f8ca37;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail .prev_detail::before{
+    transform:rotate(-135deg);
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_header_detail .next_detail::before{
+    transform:rotate(45deg);
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_division_detail{
+	display: flex;
+	width: 700px;
+	height: 280px;
+	margin: 0 auto;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_detail{
+    padding-top:0px;
+    position:relative;
+    margin:0 auto;
+    width:300px;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_detail .days_detail {
+    display:flex;
+    width:300px;
+    margin-bottom:10px;
+    padding-bottom:10px;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_detail::after{
+    top:368px;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_detail .day_detail{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:calc(100% / 7);
+    height:42px;
+    font-size :20px;
+    text-align:center;
+    border-radius:25px;
+    margin-bottom:10px;
+}
+#user_search_detail > .search_detail_box > .today {
+	background: rgb(242 242 242);
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_detail .date_detail{
+    display:flex;
+    flex-flow:wrap;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_detail .day_detail:nth-child(7n){
+    color:#3c6ffa;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_detail .day_detail:nth-child(7n+1){
+    color:#ed2a61;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_detail .day_detail.disable{
+    color:#ddd;
+}
+#user_search_detail > .search_detail_box > .calendar_detail .cal_detail .circle{
+	background: #f8ca37;
+	border-radius: 30px;
+	color: #fff;
+}
+
+
+
+
+
+
+
+
+/* 날씨 API 넣을 곳 */
+#user_search_detail > .search_detail_box > .weather_list{
+	--margin-left: 30px;
+}
+#user_search_detail > .search_detail_box > .weather_list > .seven_days > span{padding: 0px 48px;}
+#user_search_detail > .search_detail_box > .weather_list > .weather > span{padding: 0px 15px;}
+#user_search_detail > .search_detail_box > .weather_list > .temp > #day1_1{
+	padding-left: 20px;
+}
+#user_search_detail > .search_detail_box > .weather_list > .temp > #day1_1, #day2_1, #day3_1, #day4_1, #day5_1, #day6_1, #day7_1{
+	font-weight: bold;
+}
+#user_search_detail > .search_detail_box > .weather_list > .temp > #day1_2, #day2_2, #day3_2, #day4_2, #day5_2, #day6_2, #day7_2{
+	padding-right: 30px;
+}
+
+/* 캠핑장 정보 */
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_info_title, .facilities_title{
+	font-size: 23px;
+	font-weight: bold;
+}
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_info{
+	margin-top: 10px;
+	width: 800px;
+	background-color: rgba(75,193,177, 0.5);
+	border-radius: 20px;
+	padding: 15px;
+}
+
+
+
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_info > div{
+	font-size : 25px;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_info > textarea{
+	width : 770px;
+	height : 400px;
+	font-size : 20px;
+	background-color: rgba(75,193,177,0);
+	border : 0px;
+	resize : none;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_time > .manner{
+	margin-top: 10px;
+	padding: 15px;
+	width: 800px;
+	border : 2px solid #000;
+	background-color: rgba(75,193,177,0.5);
+	border-radius: 20px;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_time > .manner > div{
+	display : inline-block;
+	margin : 5px;
+	width: 360px;
+	text-align : center;
+	border-radius: 20px;
+	
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_time > .manner > div > div{
+	font-size : 30px;
+	font-weight : bold;
+	color : rgba(70,140,180);
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_time > .manner > div > label{
+	font-size : 20px;
+	padding-bottom : 10px;
+	color : #fff;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_time > .checkInOut{
+	margin-top: 10px;
+	padding: 15px;
+	width: 800px;
+	border : 2px solid #000;
+	background-color: rgba(75,193,177,0.5);
+	border-radius: 20px;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_time > .checkInOut > div{
+	display : inline-block;
+	margin : 5px;
+	width: 360px;
+	text-align : center;
+	color : #fff;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_time > .checkInOut > div > div{
+	font-size : 30px;
+	font-weight : bold;
+	color : rgba(70,140,180);
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .camp_time > .checkInOut > div > label{
+	font-size : 20px;
+	padding-bottom : 10px;
+	color : #fff;
+}
+
+
+
+
+/*희찬*/
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities{
+	--height: 1500px;
+	width: 800px;
+	--margin: 20px auto;
+	--border : 2px solid #000;
+}
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities > .basic_facilities{
+	width: 800px;
+	padding-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities > .basic_facilities > .icon_show{
+	width: 150px;
+	position: relative;
+	
+}
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities > .basic_facilities > .icon_show > img{
+	margin-left: 25px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities > .basic_facilities > .icon_show > span{
+	padding: 0px 28px;
+}
+
+
+
+
+
+
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities > .basic_facilities > img{
+	margin-right: 40px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities > .basic_facilities > .facilities_info_title{
+	font-size: 18px;
+	font-weight: bold;
+	--padding-top: 15px;
+}
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities > .basic_facilities > .facilities_name1 > .facility_1{
+	padding-left: 5px;
+}
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities > .basic_facilities > .facilities_name1 span{
+	padding: 0px 28px;
+}
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities > .basic_facilities > .facilities_name2 > .facility_1{
+	padding-left: 5px;
+}
+#user_search_detail > .search_detail_box > .camp_in_detail > .facilities > .basic_facilities > .facilities_name2 span{
+	padding: 0px 22px;
+}
+
+
+/* 희찬 */
+#user_search_detail > .search_detail_box > .camp_policy_title{
+	font-size : 30px;
+}
+/* 희찬 */
+#user_search_detail > .search_detail_box > .policy{
+	margin-top: 10px;
+	width: 800px;
+	background-color: rgba(75,193,177, 0.5);
+	border-radius: 20px;
+	padding: 15px;
+}
+/* 희찬 */
+#user_search_detail > .search_detail_box > .policy > textarea{
+	width : 770px;
+	height : 400px;
+	font-size : 20px;
+	border : 0px;
+	resize : none;
+	background-color: rgba(75,193,177,0);
+}
+/* 희찬 */
+#user_search_detail > .search_detail_box > .camp_refund_title{
+	font-size : 30px;
+}
+/* 희찬 */
+#user_search_detail > .search_detail_box > .refund{
+	margin-top: 10px;
+	width: 800px;
+	background-color: rgba(75,193,177, 0.5);
+	border-radius: 20px;
+	padding: 15px;
+}
+/* 희찬 */
+#user_search_detail > .search_detail_box > .refund > textarea{
+	width : 770px;
+	height : 400px;
+	font-size : 20px;
+	background-color: rgba(75,193,177,0);
+	border : 0px;
+	resize : none;
+}
+
+
+
+
+
+
+/* 사이트 배치도 */
+#user_search_detail > .search_detail_box > .site_detail > .site_detail_title{
+	font-size: 23px;
+	font-weight: bold;
+}
+#user_search_detail > .search_detail_box > .site_detail > img{
+	margin-top: 10px;
+}
+#user_search_detail > .search_detail_box > .site_detail > .site_detail_info_title{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+/* #user_search_detail > .search_detail_box > .site_detail > .site_info{
+	margin-top: 10px;
+	width: 800px;
+	background-color: rgba(75,193,177, 0.5);
+	padding: 15px;
+} */
+
+/*희찬*/
+#user_search_detail > .search_detail_box > .site_detail > .site_hidden{
+	display : none;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .site_detail > .site_hidden > .site_info > .site_info_option{
+	width : 770px;
+	--border : 2px solid #000;
+	background-color: rgba(75,193,177, 0.5);
+	text-align : center;
+	border-radius: 20px;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .site_detail > .site_hidden > .site_info > .site_info_option > div{
+	display : inline-block;
+	margin-top: 10px;
+	padding: 15px;
+	width: 250px;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .site_detail > .site_hidden > .site_info > .site_info_option > div > label{
+	font-size : 30px;
+	font-weight : bold;
+	color : rgba(70,140,180);
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .site_detail > .site_hidden > .site_info > .site_info_option > div > div{
+	font-size : 20px;
+	padding-bottom : 10px;
+	color : #fff;
+}
+
+/*희찬*/
+#user_search_detail > .search_detail_box > .site_detail > .site_hidden > .site_info > .site_info_detail > div{
+	width : 770px;
+	height : 100px;
+	font-size : 20px;
+	background-color: rgba(75,193,177,0.5);
+	border-radius: 20px;
+	border : 0px;
+	padding : 10px;
+}
+
+/*희찬*/
+#user_search_detail > .search_detail_box > .site_detail > .site_hidden > .site_info > .div_infoText{
+	width: 770px;
+	padding-top: 10px;
+	border-radius: 20px;
+	height : 250px;
+	background-color: rgba(75,193,177, 0.5);
+	border : 2px;
+	resize : none;
+	padding: 15px;
+}
+
+/*희찬*/
+#user_search_detail > .search_detail_box > .site_detail > .site_hidden > .site_info > .div_infoText > #site_infoText{
+	width: 750px;
+	padding-top: 10px;
+	border-radius: 20px;
+	height : 220px;
+	background-color: rgba(75,193,177,0);
+	border : 2px;
+	resize : none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 후기 */
+#user_search_detail > .search_detail_box > .reviews > .review_title > .review_total{
+	display: inline-block;
+	padding-left: 5px;
+	margin-bottom: 25px;
+	font-size: 20px;
+	font-weight: bold;
+}
+#user_search_detail > .search_detail_box > .reviews > .review_title > .review_sorting{
+	display: inline-block;
+	margin-left: 315px;
+}
+
+/*희찬*/
+#user_search_detail > .search_detail_box > .reviews > .real_review{
+	display: inline-block;
+	width: 350px;
+	--border-bottom: 2px solid #4bc1b1;
+	--margin-bottom: 50px;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .reviews > .real_review:nth-child(odd){
+	margin-left: 50px;
+}
+
+
+#user_search_detail > .search_detail_box > .reviews .reviewer_name{
+	font-size: 18px;
+	font-weight: bold;
+}
+#user_search_detail > .search_detail_box > .reviews .reviewer_date{
+	position: relative;
+	left: 200px;
+}
+#user_search_detail > .search_detail_box > .reviews .star2{
+	position: relative;
+	margin-left: 250px;
+	font-size: 18px;
+}
+#user_search_detail > .search_detail_box > .reviews img{
+	margin-top: 10px;
+	border-radius: 20px;
+	overflow: hidden;
+}
+#user_search_detail > .search_detail_box > .reviews .reviewer_content{
+	width: 370px;
+	padding-top: 10px;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .reviews .reviewer_content > textarea{
+	width: 370px;
+	padding-top: 10px;
+	border-radius: 20px;
+	height : 100px;
+	background-color: rgba(75,193,177, 0.5);
+	border : 2px;
+	resize : none;
+	padding: 15px;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .reviews > .items_detail_review{
+	display : none;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .reviews > .items_detail_review > div{
+	margin-top: 10px;
+	width: 370px;
+	background-color: rgba(75,193,177, 0.5);
+	margin-left: 50px;
+	border-radius: 20px;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .reviews > .items_detail_review > div > h3{
+	padding-left: 15px;
+	border : 2px;
+}
+/*희찬*/
+#user_search_detail > .search_detail_box > .reviews > .items_detail_review > div > textarea{
+	width: 350px;
+	height : 80px;
+	background-color: rgba(75,193,177, 0);
+	resize : none;
+	margin : 10px;
+	border : 0px;
+}
+
+
+#user_search_detail > .search_detail_box > .reviews > .btn_more_reviews{
+	border: 3px solid #4bc1b1;
+	border-radius: 10px;
+	background-color: #fff;
+	color: #4bc1b1;
+	width: 350px;
+	height: 50px;
+	text-align: center;
+	font-size: 18px;
+	margin-left: 200px;
+}
+#user_search_detail > .search_detail_box > .reviews > .btn_more_reviews:hover{
+	background-color: #4bc1b1;
+	color: #fff;
+	cursor: pointer;
+}
+
+/* 문의 */
+#user_search_detail > .search_detail_box > .qna > .qna_title{
+	font-size: 23px;
+	font-weight: bold;
+}
+#user_search_detail > .search_detail_box > .qna > .qna_list{
+	margin-top: 15px;
+	width: 800px;
+}
+#user_search_detail > .search_detail_box > .qna > .qna_list > .title{
+	background-color: #4bc1b1;
+	color: #fff;
+	padding: 2px 5px;
+}
+#user_search_detail > .search_detail_box > .qna > .qna_list span{
+	display: inline-block;
+	text-align: center;
+}
+#user_search_detail > .search_detail_box > .qna > .qna_list .item{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#user_search_detail > .search_detail_box > .qna > .qna_list .no{
+	width: 70px;
+	text-align: center;
+}
+#user_search_detail > .search_detail_box > .qna > .qna_list > .title .subject{width: 450px; text-align: center;}
+#user_search_detail > .search_detail_box > .qna > .qna_list > .items > .item > .subject{width: 450px; text-align: left;}
+#user_search_detail > .search_detail_box > .qna > .qna_list .mName{width: 150px; text-align: center;}
+#user_search_detail > .search_detail_box > .qna > .qna_list .date{
+	width: 100px;
+	padding-right: 20px;
+	text-align: center;
+}
+#user_search_detail > .search_detail_box > .qna > .qna_list .item:hover{
+	cursor: pointer;
+	background-color: #dff4f2;
+	cursor: pointer;
+	transition : all .2s;
+}
+#user_search_detail > .search_detail_box > .qna > .qna_list .item:last-child{
+	border-bottom: 2px solid #4bc1b1;
+	margin-bottom: 8px;
+}
+
+/* 희찬 */
+#user_search_detail > .search_detail_box > .qna > .qna_list > .items > .item_detail_qna{
+	display:none;
+	border-bottom: 2px solid #4bc1b1;
+	padding-left:50px;
+}
+#user_search_detail > .search_detail_box > .qna > .qna_list > .items > .item_detail_qna > textarea{
+	padding-left:10px;
+	width : 740px;
+	height : 100px;
+	font-size : 20px;
+	border : 2px;
+	resize : none;
+	background-color: rgba(75,193,177, 0.5);
+}
+
+
+
+#user_search_detail > .search_detail_box > .qna .paging{
+	text-align: center;
+}
+#user_search_detail > .search_detail_box > .qna .paging button{
+	border: none;
+	background-color: #fff;
+	color: #4bc1b1;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px;
+}
+#user_search_detail > .search_detail_box > .qna .paging button:hover{
+	color: #f8ca37;
+	cursor: pointer;
+}
+#user_search_detail > .search_detail_box > .qna > .qna_findStr{
+	position: absolute;
+	margin-top: 5px;
+	margin-left: 285px;
+	border: 2px solid #4bc1b1;
+	border-radius: 5px;
+	padding: 10px;
+	width: 250px;
+	height: 30px;
+}
+#user_search_detail > .search_detail_box > .qna img{
+	margin-top: 5px;
+	margin-left: 540px;
+	cursor: pointer;
+}
+#user_search_detail > .search_detail_box > .qna > .btn_qna_input{
+	/* position: absolute; */
+	border: 1px solid #4bc1b1;
+	background-color: #4bc1b1;
+	color: #fff;
+	font-size: 17px;
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	margin-left: 130px;
+	margin-top: 5px;
+	top: 6960px;
+	border-radius: 5px;
+}
+#user_search_detail > .search_detail_box > .qna > .btn_qna_input:hover{
+	background-color: #82d5ca;
+	cursor: pointer;
+}
+
+/* HIDDEN FORM */
+#user_search_detail > .frm_user_rough_reservation{
+	--display: none;
+}
+
+/*메인 슬라이드*/
+/* slide */
+/*430 270*/
+#user_search_detail > .imgs{
+	height: 390px;
+	background: #fff;
+	margin-top: -130px;
+}
+#user_search_detail > .imgs > div{
+	width: 1290px;
+	margin: 0px auto;
+	padding: 20px 0;
+	position:relative;
+}
+#user_search_detail > .imgs > div > .detail_slide_wrap{
+	width: 1290px;
+	overflow: hidden;
+ 	margin: 20px auto;
+}
+#user_search_detail > .imgs > div > .detail_slide_wrap > ul {
+	display: flex;
+}
+#user_search_detail > .imgs > div > .detail_slide_wrap > ul > li.camp_Image{
+	min-width: 430px;
+	height: 270px;
+	display: inline-block;
+	background: #ee9ca7;
+	position:relative;
+}
+#user_search_detail > .slide_nav1 > img.prev{
+	position:absolute;
+	left: -70px;
+	bottom: 370px;
+}
+
+#user_search_detail > .slide_nav1 > img.next{
+	position:absolute;
+	right: -70px;
+	bottom: 370px;
+}
+
+
+/*
+/* 희찬 
+.camp_Image > div {
+	display: flex;
+}
+.camp_Image > div > div:first-child{
+	flex : 40%;
+}
+.camp_Image > div > div:last-child{
+	flex : 60%;
+	padding: 20px;
+}*/

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campin.mybatis.UserMembershipMapper">
+
+<select id="findIdByPhone" parameterType="UserMembershipVo" resultType="String">
+	select id, regDate from user
+	where mName = #{mName} and phone = #{phone}
+</select>
+
+<select id="findIdByEmail" parameterType="UserMembershipVo" resultType="String">
+	select id, regDate from user
+	where mName = #{mName} and email = #{email}
+</select>
+
+<select id="login" parameterType="UserMembershipVo" resultType="UserMembershipVo">
+	select * from user where id=#{id} and pwd=#{pwd}
+</select>
+
+<insert id="join" parameterType="UserMembershipVo">
+	insert into user(id, pwd, mName, birth, phone, email, gender, regDate, socialJoin)
+    values(#{id}, #{pwd}, #{mName}, #{birth}, #{phone}, #{email}, #{gender}, now(), #{socialJoin})
+</insert>
+
+<select id="findUserById" parameterType="Kakao_Login_Profile" resultType="Integer">
+	select userCode from user
+	where id = #{id}
+</select>
+
+<select id="findUserById_naver" parameterType="String" resultType="Integer"> <!-- "Naver_Login_Profile_Response" -->
+	select userCode from user
+	where id = #{id}
+</select>
+
+<insert id="join_kakao1" parameterType="Kakao_Login_Profile">
+	insert into user(id, pwd, mName, birth, phone, email, gender, regDate, socialJoin)
+    values(#{id}, #{pwd}, #{mName}, #{birth}, #{phone}, #{email}, #{gender}, now(), #{socialJoin})
+</insert>
+
+<update id="join_kakao2" parameterType="UserMembershipVo">
+	update user
+	set mName=#{mName}, birth=#{birth}, phone=#{phone}
+	where id=#{id}
+</update>
+
+<insert id="join_naver" parameterType="Naver_Login_Profile_Response">
+	insert into user(id, pwd, mName, birth, phone, email, gender, regDate, socialJoin)
+    values(#{id}, #{pwd}, #{mName}, #{birth}, #{phone}, #{email}, #{gender}, now(), #{socialJoin})
+</insert>
+
+<select id="login_kakao1" parameterType="UserMembershipVo" resultType="UserMembershipVo">
+	select * from user where id=#{id}
+</select>
+
+<select id="login_kakao2" parameterType="String" resultType="UserMembershipVo">
+	select * from user where id=#{id}
+</select>
+
+<select id="findOutIfSocial" parameterType="UserMembershipVo" resultType="String">
+	select socialJoin from user
+	where id = #{id}
+</select>
+
+<select id="idValidation" parameterType="String" resultType="String">
+	select id from user
+	where id = '${_parameter}'
+</select>
+
+<select id="emailValidation" parameterType="String" resultType="String">
+	select email from user
+	where email = '${_parameter}'
+</select>
+
+<select id="phoneValidation" parameterType="String" resultType="String">
+	select phone from user
+	where phone = '${_parameter}'
+</select>
+
+<select id="pwdValidation" parameterType="String" resultType="String">
+	select pwd from user
+	where id = #{id}
+</select>
+
+<update id="updateTempPwd" parameterType="UserMembershipVo">
+	update user set pwd = #{pwd}
+	where id = #{id} and email = #{email}
+</update>
+
+<select id="emailCheck" parameterType="UserMembershipVo" resultType="String">
+	select email from user
+	where id = #{id} <!-- '${_parameter}' -->
+</select>
+
+<select id="selectOneProfile" parameterType="String" resultType="UserMembershipVo">
+	select * from user where id = #{_parameter}
+</select>
+
+<update id="profile_modify" parameterType="UserMembershipVo">
+	update user
+	set mName=#{mName}, birth=#{birth}, phone=#{phone}, 
+	    email=#{email}, gender=#{gender} 
+	where id=#{id}
+</update>
+
+<update id="pwd_modify" parameterType="UserMembershipVo">
+	update user set pwd=#{pwd}
+	where id=#{id}
+</update>
+
+<delete id="remove_account" parameterType="UserMembershipVo">
+	delete from user where id=#{id} and pwd=#{pwd}
+</delete>
+
+<delete id="remove_account_kakao" parameterType="UserMembershipVo">
+	delete from user where id=#{id}
+</delete>
+</mapper>

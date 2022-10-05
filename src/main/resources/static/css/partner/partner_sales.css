@@ -1,0 +1,92 @@
+@charset "UTF-8";
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;
+	color : #303030;
+}
+#partner_sales{
+	width: 1000px;
+	margin: 30px auto;
+	text-align: center;
+}
+#partner_sales > span{
+	font-size: 25px;
+	font-weight: 600;
+	color: #f8ca37;
+	display: inline-block;
+}
+#partner_sales > .today{
+	text-align: right;
+	margin-top: 40px;
+	padding-right: 170px;
+}
+#partner_sales > .today > span{
+	font-size: 0.9em;
+}
+#partner_sales > .today > .amt{
+	font-weight: 600;
+}
+
+#partner_sales > .sales_filter{
+	margin: 10px;
+	padding-right: 120px;
+	text-align: right;
+}
+#partner_sales > .sales_filter .caution{
+	font-size: 0.8em;
+	color: #ff6600;
+}
+#partner_sales > .sales_filter > form {
+	display: flex;
+	justify-content: space-between;
+}
+#partner_sales > .sales_filter > form > .option{
+	margin-left: 155px;
+	width: 90px;
+	height: 27px;
+	margin-top: 38px;
+	border: 1px solid #ccc;
+	padding: 0px 3px;
+	border-radius: 5px;
+}
+#partner_sales > .sales_filter > form > .filter_month {
+	display: none;
+	padding-top: 12px;
+	margin-right: 40px;
+}
+#partner_sales > .sales_filter > form > .filter_month > .option_month{
+	width: 100px;
+	border: 1px solid #ccc;
+	padding: 2px 6px;
+	border-radius: 5px;
+	font-size: 0.8em;
+	margin: 3px 0;	
+}
+#partner_sales > .sales_filter > form > .filter_date {
+	padding-top: 12px;
+	margin-right: 40px;
+}
+#partner_sales > .sales_filter > form > .filter_date > input{
+	width: 125px;
+	height: 25px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 1px 8px;
+	font-size: 0.8em;
+	position: relative;
+	top: 3px;
+}
+#partner_sales > #chart{
+	height: 500px;
+}
+
+
+
+
+
+
+
+
+

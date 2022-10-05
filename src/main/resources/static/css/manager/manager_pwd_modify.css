@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+*{
+	--margin: 0px auto;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;		
+}
+#manager_pwd_modify{
+	width: 1000px;
+	margin: 0px auto;
+	text-align: center;
+	--border: 1px solid #000;
+}
+#manager_pwd_modify > .frm_manager_pwd_modify > .frm_title{
+	text-align: center;
+	font-size: 25pt;
+	font-weight: bold;
+	color: #f8ca37;
+	padding-bottom: 25px;
+	width: 340px;
+}
+#manager_pwd_modify label{
+	display:inline-block;
+	width: 150px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+#manager_pwd_modify .frm_manager_pwd_modify{
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: left;
+}
+#manager_pwd_modify .btn_manager_pwd_modify,
+#manager_pwd_modify .btn_cancel{
+	width: 150px;
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	font-size: 1em;
+	padding: 3px;
+	vertical-align: middle;
+	cursor: pointer;
+	margin-top: 10px;
+}
+#manager_pwd_modify .btn_cancel{
+	color: #f8ca37;
+	border:solid 1px #f8ca37;
+	background-color: #fff;	
+	margin-left: 23px;
+}
+/**/
+#manager_pwd_modify .btn_manager_pwd_modify:hover{
+	cursor: pointer;
+	background-color: #fbdb79;
+}
+#manager_pwd_modify .btn_cancel:hover{
+	background-color: #f8ca37;
+	color: #fff;
+	cursor: pointer;
+}

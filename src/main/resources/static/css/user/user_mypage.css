@@ -1,0 +1,633 @@
+@charset "UTF-8";
+/* #4bc1b1 초록
+   #f8ca37 노랑  
+   #82d5ca 초록호버*/
+   
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;		
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+#user_mypage{
+	width: 1366px;
+	min-height:800px;
+	margin: 10px auto;
+	padding-top: 50px;
+	display: flex;
+}
+
+#user_mypage > form > nav{
+	width: 250px;
+	height: 490px;
+	border: 3px solid #4bc1b1;
+	border-radius: 25px;
+	padding: 20px;
+	position: sticky;
+	top: 150px;
+}
+#user_mypage > form > nav > .user{
+	margin: 20px auto;
+	text-align: center;	
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ccc;
+}
+
+#user_mypage > form > nav > .user > img{
+	width: 100px;
+	height: 100px;
+	margin-bottom: 15px;
+}
+#user_mypage > form > nav > .user > span{
+	font-size: 1.3em;
+	font-weight: 700;
+}
+#user_mypage > form > nav > ul{
+	text-align: center;
+}
+#user_mypage > form > nav > ul > li{
+	font-size: 1em;
+	font-weight: 600;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+#user_mypage > form > nav > ul > li:hover{
+	color: #82d5ca;
+}
+
+#user_mypage > section{
+	width: 900px;
+	margin-left: 40px;
+}
+
+#user_reservation_list{
+	padding-top: 20px;
+	text-align: center;
+}
+#user_reservation_list .list_filter{
+	width: 800px;
+	margin-top: 40px;
+	text-align: right;
+}
+#user_reservation_list > form  > span{
+	font-size: 25px;
+	font-weight: 600;
+	color: #4bc1b1;
+}
+#user_reservation_list .list > .reservation{
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	width: 800px;
+	margin: 0 auto;
+	padding: 30px 0;
+	border-bottom: 1px solid #82d5ca;
+}
+
+#user_reservation_list .list > div:last-child{
+	border-bottom: none;
+}
+#user_reservation_list .list > div > img{
+	width: 200px;
+	height: 140px;
+	border-radius: 15px;
+}
+#user_reservation_list .list > div > div{
+	display:inline-block;
+	padding: 0 20px;
+	border-right: 1px solid #ccc;
+	height: 75px;
+}
+#user_reservation_list .list > div > div.first{
+	width:300px;
+	white-space : nowrap;
+	overflow : hidden;
+	text-overflow: ellipsis;
+}
+#user_reservation_list .list > div > div.first > span:first-child{
+	font-size: 1.1em;
+	font-weight: 600;
+}
+#user_reservation_list .list > div > div.first > span:last-child{
+	font-size: 0.8em;
+}
+#user_reservation_list .list > div > div.second > div{
+	line-height: 75px;
+	margin: 0 auto; 
+}
+#user_reservation_list .list > div > div.last{
+	line-height: 75px;
+	border-right: none;
+}
+#user_reservation_list .btn_review_input{
+	position: relative;
+	left: 15px;
+	border: none;
+	border-radius: 10px;
+	background: #4bc1b1;
+	padding: 5px 10px;
+	box-shadow: 0 0 1px #ccc;
+	color: #fff;
+	font-weight: 600;
+	font-size: 0.9em;
+}
+
+#user_reservation_list .btn_review_view{
+	position: relative;
+	left: 15px;
+	border: none;
+	border-radius: 10px;
+	background: #f8ca37 ;
+	padding: 5px 10px;
+	box-shadow: 0 0 1px #ccc;
+	color: #fff;
+	font-weight: 600;
+	font-size: 0.9em;
+}
+
+#user_reservation_list .review_input{
+	display:none;
+	margin-left: 50px;
+	background-color:#d5f0ed;
+	width: 800px;
+	padding: 30px 20px;
+}
+
+#user_reservation_list .review_photo{
+	
+	width: 60%;
+	height: 60% !important;
+	border: solid 1px #777 !important;
+	margin-right: 20px;
+    border-radius: 15px;
+    display:none;
+}
+
+#user_reservation_list .review_input textarea{
+	width: 650px;
+	height: 150px;
+}
+
+#user_reservation_list .star {
+	margin-left: 200px;
+	display:inline-block;
+    position: relative;
+    font-size: 2rem;
+    color: #ddd;
+    text-align: left;
+  }
+  
+ #user_reservation_list .star > input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  #user_reservation_list .star2 {
+    width: 0;
+    position: absolute; 
+    left: 0;
+    color: #f8ca37; 
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+#user_reservation_list .review_input .score{
+	width: 40px;
+	margin-left: 15px;
+	font-size: 19pt;
+	border: none;
+	background-color: #d5f0ed;
+}
+
+#user_reservation_list .frm_reviewInput{
+	display:none;
+}
+
+#user_reservation_list .review_input button{
+	position: relative;
+	left: 15px;
+	border: none;
+	border-radius: 10px;
+	background: #4bc1b1;
+	padding: 5px 10px;
+	box-shadow: 0 0 1px #ccc;
+	color: #fff;
+	font-weight: 600;
+	font-size: 0.9em;
+	margin-top:10px;
+}
+
+#user_reservation_list .null1{
+	margin-top: 80px;
+	display:bolck;
+}
+
+#user_reservation_list .null2{
+	margin-top: 20px;
+}
+
+#user_qna_list{
+	padding-top: 20px;
+	width: 900px;
+	text-align: center;
+}
+#user_qna_list .null1{
+	margin-top: 80px;
+	display:bolck;
+}
+
+#user_qna_list .null2{
+	margin-top: 20px;
+}
+
+#user_qna_list form > h1{
+	font-size: 25pt;
+	margin-bottom: 30px;
+	color: #4bc1b1;
+	font-weight: 600;
+	display: inline-block;
+}
+#user_qna_list .qna_filter{
+	text-align: right;
+	margin: 20px;
+	margin-right: 50px;
+}
+#user_qna_list .list{
+	width: 800px;
+	margin: 0 auto;
+	border-top: 2px solid #4bc1b1;
+	border-bottom: 2px solid #4bc1b1;	
+}
+#user_qna_list .list > .title{
+	padding: 15px 0;
+	margin: 0 10px;
+	width: 780px;
+	
+}
+#user_qna_list .list > .title > span{
+	display: inline-block;
+	font-size: 1em;
+	font-weight: 600;
+	text-align: center;
+}
+#user_qna_list .list > .items span{
+	display: inline-block;
+	font-size: 0.9em;
+}
+
+#user_qna_list  .list span.state{ width: 90px}
+#user_qna_list  .list span.subject{ width: 350px}
+#user_qna_list  .list span.iName{ width: 150px}
+#user_qna_list  .list span.nal{ width: 150px}
+
+
+/* #user_qna_list  .list .item_qna .nal{ text-align:right;} */
+
+#user_qna_list  .list span.sno{display:none;}
+
+#user_qna_list .list > .items > .item{
+	padding: 15px 0;
+	margin: 0 10px;
+	border-top: 1px solid #ccc;
+	cursor: pointer;
+	text-align: center;
+	
+	
+}
+
+#user_qna_list .item_qna_detail{
+	display:none;
+	background-color:#d5f0ed;
+	width: 800px;
+	padding: 30px 30px;
+	margin: 20px 0;
+	text-align: left;
+}
+
+#user_qna_list .item_qna_detail h3{
+	color: #4bc1b1;	
+	padding-bottom: 10px;
+	border-bottom: solid 2px #fff;
+	margin-left: 10px;
+}
+
+#user_qna_list .item_qna_detail .user_qna{
+	width: 625px;
+	height: 100%;
+	border:none;
+	padding: 10px;
+	background-color: transparent;
+	resize:none;
+	--overflow:hidden;
+	vertical-align: middle;
+	
+}
+
+#user_qna_list .item_qna_detail .qna_re{
+	width: 750px;
+	height: 100%;
+	border:none;
+	padding: 10px;
+	background-color: transparent;
+	resize:none;
+	--overflow:hidden
+}
+
+#user_qna_list .btn_modify{
+	display: inline-block;
+	height: 30px;
+	padding: 5px 10px;
+	margin: 0 5px;
+	border: none;
+	border-radius: 10px;
+	background: #4bc1b1;
+	font-size: 0.8em;
+	font-weight: 600;
+	color: #fff;
+	cursor: pointer;
+	text-align: right;
+	vertical-align: middle;
+}
+
+#user_qna_list .btn_delete{
+	display:inline-block;
+	height: 30px;
+	padding: 5px 10px;
+	margin: 0 5px;
+	border: none;
+	border-radius: 10px;
+	background: #4bc1b1;
+	font-size: 0.8em;
+	font-weight: 600;
+	color: #fff;
+	cursor: pointer;
+	text-align: right;
+	vertical-align: middle;
+}
+
+#user_qna_list .btn_save, #user_qna_list .btn_cancel{
+	display: none;
+	height: 30px;
+	padding: 5px 10px;
+	margin: 0 5px;
+	border: none;
+	border-radius: 10px;
+	background: #4bc1b1;
+	font-size: 0.8em;
+	font-weight: 600;
+	color: #fff;
+	cursor: pointer;
+	text-align: right;
+	vertical-align: middle;
+}
+
+#user_qna_list .paging_btns{
+	margin-top:20px;
+}
+#user_qna_list .paging_btns > button{
+	height: 30px;
+	padding: 5px 10px;
+	margin: 0 5px;
+	border: none;
+	border-radius: 10px;
+	background: none;
+	font-size: 0.8em;
+	font-weight: 600;
+	color: #4bc1b1;
+	cursor: pointer;
+}
+#user_qna_list .paging_btns > button:hover{
+	color: #f8ca37;
+}
+#user_review_list{
+	padding-top: 20px;
+	text-align: center;
+}
+#user_review_list h1{
+	font-size: 25px;
+	font-weight: 600;
+	color: #4bc1b1;
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+#user_review_list .list > .review{
+	width: 800px;
+	border-top: 1px solid #4bc1b1;
+	text-align: left;
+}
+#user_review_list .list > .review:last-child{
+	border-bottom: 1px solid #4bc1b1;
+}
+#user_review_list .list > .review > div.top{
+	width: 800px;
+	border-bottom: 1px solid #ccc;
+	padding: 10px;
+	display: table;
+}
+#user_review_list .list > .review > div.top > img{
+	width: 800px;
+	width: 100px; 
+	height: 70px;
+	border-radius: 10px;
+}
+#user_review_list .list > .review > div.top > div.first{
+	display:table-cell;
+	vertical-align: middle;
+	width: 220px;
+	text-align: left;
+	white-space : nowrap;
+	overflow : hidden;
+	text-overflow: ellipsis;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+#user_review_list .list > .review > div.top > div.first > span:first-child{
+	font-size: 1em;
+	font-weight: 600;
+}
+#user_review_list .list > .review > div.top > div.first > span.address{
+	font-size: 0.8em;
+	color: #4f4f4f;
+}
+#user_review_list .list > .review > div.top > div:not(.first){
+	width: 200px;
+	display: table-cell;
+	font-size: 0.8em;
+	color: #4f4f4f;
+	vertical-align: middle;
+}
+
+#user_review_list .amt {
+	width: 100px !important;
+}
+
+#user_review_list .list > .review > div.top > .btns{
+	text-align: right;
+	display: inline-block;
+	width: 100px !important;
+	margin-left: 40px;
+}
+#user_review_list .list > .review > div.top > .btns > button{
+	margin: 10px;
+	border: 1px solid #4f4f4f;
+	border-radius: 5px;
+	padding: 3px 7px;
+	background: none;
+	font-weight: 600;	
+	cursor: pointer;	
+	color: #4f4f4f;
+}
+#user_review_list .list > .review > div.top > .btns > img{
+	width : 15px;
+	height: 15px;
+	cursor: pointer;
+	top: 2px;
+}
+
+#user_review_list .bottom{
+	padding: 20px;
+}
+
+#user_review_list .list > .review > div.bottom > div > img{
+	width: 17px;
+	height: 17px;
+}
+#user_review_list .list > .review > div.bottom > div > span.rank{
+	bottom: 2px;
+	margin-left: 4px;
+}
+
+#user_review_list .review_photo{
+	width: 150px; 
+	display:inline-block;
+}
+
+#user_review_list .review_photo img{
+	display: inline-block;
+	width: 150px;
+	border-radius:10px;
+	margin-left: 10px;
+}
+
+#user_review_list .review textarea{
+	width: 580px;
+	height: 100px;
+	resize:none;
+	overflow: hidden;
+	display: inline-block;	
+	background-color: transparent;
+	border-radius: 10px;
+	text-align: left;
+	padding: 20px; 
+	position: relative;
+	margin-top: 10px;
+	border: solid 1px #4bc1b1;
+}
+
+#user_review_list .bottom .doc {
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: 10px;
+	width : 700px;
+	font-size: 10pt;
+	
+}
+
+#user_review_list .dStar{
+	display:inline-block;
+	width: 600px;
+	margin: 0 !important;
+}
+
+#user_review_list .star3 {
+	margin-left: 2px;
+	display:inline-block;
+    position: relative;
+    font-size: 15pt;
+    color: #ddd;
+    text-align: left;
+  }
+  
+#user_review_list .star3 > input{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+#user_review_list .star4 {
+    width: 0;
+    position: absolute; 
+    left: 0;
+    color: #f8ca37; 
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+#user_review_list .score3{
+	width: 40px;
+	margin-left: 15px;
+	font-size: 15pt;
+	border: none;
+	background-color: transparent;
+}
+
+#user_review_list .reviewR{
+	margin-top: 10px;
+	background-color:#d5f0ed;
+	padding: 10px;
+}
+
+#user_review_list .reviewR .iName{
+	font-weight: bold;
+	margin-bottom: 10px !important;
+	font-size: 11pt;
+}
+
+#user_review_list .btns{
+	display:none;
+	margin-left: 220px;
+}
+
+#user_review_list .btns button{
+	left: 15px;
+	border: none;
+	border-radius: 10px;
+	background: #4bc1b1;
+	padding: 5px 10px;
+	box-shadow: 0 0 1px #ccc;
+	color: #fff;
+	font-weight: 600;
+	font-size: 0.9em;
+	margin-top:10px;
+
+}
+#user_review_list .frm_reviewModify{
+	display:none;
+}
+
+#user_review_list .null1{
+	margin-top: 80px;
+	display:bolck;
+}
+
+#user_review_list .null2{
+	margin-top: 20px;
+}
+
+
+
+

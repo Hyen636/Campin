@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace='com.campin.mybatis.ManagerjoinMapper'>
+
+	<select id='manager_login' parameterType='com.campin.manager.AuserVo' resultType='com.campin.manager.AuserVo'>
+		select * from auser where id=#{id} and pwd=#{pwd}
+	</select>
+				
+	<insert id='insertR' parameterType='com.campin.manager.AuserVo'>	
+		insert into auser(id, pwd, mName, birth, phone, email, gender, regDate, job)
+		values(#{id}, #{pwd}, #{mName}, #{birth}, #{phone}, #{email}, #{gender}, now(), #{job})
+	</insert>
+	<select id="getHistoryCuser" parameterType="Integer" resultType="com.campin.partner.HistoryCuserVo">
+		select * from historycuser
+		where hisSno = '${_parameter}'
+	</select>
+	<!-- userlist조회시 totsize -->
+	<select id='totSize' parameterType='com.campin.manager.PageAccountList' resultType='Integer'>
+		select count(userCode) totSize from user
+		where userCode like '%${findStr}%' or id like '%${findStr}%' 
+		or mName like '%${findStr}%' or birth like '%${findStr}%'
+		or email like '%${findStr}%' or phone like '%${findStr}%' 
+		or gender like '%${findStr}%'
+	</select>
+	
+	<!-- campinglist조회시 totsize -->
+	<select id='totSizeC' parameterType='com.campin.manager.PageCampAccountList' resultType='Integer'>
+		select count(cUserCode) totSize from item
+		where iName like '%${findStr}%' or mName like '%${findStr}%' 
+		or phone like '%${findStr}%' or address1 like '%${findStr}%'
+		or address2 like '%${findStr}%'
+	</select>
+	
+	<!-- managerlist조회시 totsize -->
+	<select id='totSizeA' parameterType='com.campin.manager.PageManagerAccountList' resultType='Integer'>
+		select count(aUserCode) totSize from auser
+		where id like '%${findStr}%' or mName like '%${findStr}%' 
+		or birth like '%${findStr}%' or phone like '%${findStr}%'
+		or email like '%${findStr}%' or gender like '%${findStr}%'
+		or regDate like '%${findStr}%' or job like '%${findStr}%'
+	</select>
+	
+	<!-- userlist-->
+	<select id='selectUserList' parameterType='com.campin.manager.PageAccountList' resultType='com.campin.user.UserVo'>
+		select * from user
+		where userCode like '%${findStr}%' or id like '%${findStr}%' 
+		or mName like '%${findStr}%' or birth like '%${findStr}%'
+		or email like '%${findStr}%' or phone like '%${findStr}%' 
+		or gender like '%${findStr}%'
+		limit ${startNo-1}, ${listSize}
+	</select>	
+	
+	<!-- campinglist-->
+	<select id='selectCapmingList' parameterType='com.campin.manager.PageCampAccountList' resultType='com.campin.partner.ItemVo'>
+		select * from item
+		where iName like '%${findStr}%' or mName like '%${findStr}%' 
+		or phone like '%${findStr}%' or address1 like '%${findStr}%'
+		or address2 like '%${findStr}%'
+		limit ${startNo-1}, ${listSize}
+	</select>	
+	
+	<!-- managerlist-->
+	<select id='selectAuserList' parameterType='com.campin.manager.PageManagerAccountList' resultType='com.campin.manager.AuserVo'>
+		select * from auser
+		where id like '%${findStr}%' or mName like '%${findStr}%' 
+		or birth like '%${findStr}%' or phone like '%${findStr}%'
+		or email like '%${findStr}%' or gender like '%${findStr}%'
+		or regDate like '%${findStr}%' or job like '%${findStr}%'
+		limit ${startNo-1}, ${listSize}
+	</select>	
+	
+	<select id='selectAOne' parameterType='String' resultType='com.campin.manager.AuserVo'>
+		select * from auser where id=#{_parameter}
+	</select>
+	
+	<delete id='deleteAuser' parameterType='com.campin.manager.AuserVo'>
+		delete from auser where aUserCode=#{aUserCode}
+	</delete>
+	
+	<update id='updateAuser' parameterType='com.campin.manager.AuserVo'>
+		update auser 
+			set mName=#{mName}, birth=#{birth}, phone=#{phone}, email=#{email}, gender=#{gender} 
+		where id=#{id}
+	</update>
+	
+	<select id='mPwdValidation' parameterType='String' resultType="String">
+		select pwd from auser where id=#{id}
+	</select>
+	
+	<update id='updateAPwd' parameterType='com.campin.manager.AuserVo'>
+		update auser set pwd=#{pwd} where id=#{id}
+	</update>
+	
+	<!-- request -->
+	<select id='selectCuserHisviewM' parameterType='Integer' resultType='com.campin.partner.HistoryCuserVo'>
+		select * from historycuser where hisSno = #{_parameter}
+	</select>
+	
+	<update id='updateCuserConfirmRequest' parameterType='com.campin.manager.RequestVo'>
+		update request set state=#{state} where hisUserSno=#{hisUserSno}
+	</update>
+	
+	<update id='updateCuserConfirmHistory' parameterType='com.campin.partner.HistoryCuserVo'>
+		update historycuser set state=#{state} where hisSno=#{hisSno}
+	</update> 
+	
+	<update id='updateCuserConfirmCuser' parameterType='com.campin.partner.CuserVo'>
+		update cuser set state=#{state} where cUserCode=#{cUserCode}
+	</update>
+	
+	<update id='updateCuserModiConfirmCuser' parameterType='com.campin.partner.HistoryCuserVo'>
+		update cuser set mName=#{mName}, phone=#{phone}, email=#{email}, birth=#{birth}, gender=#{gender},
+						 busiBankName=#{busiBankName}, busiBank=#{busiBank}, busiBankNum=#{busiBankNum}, 
+						 busiName=#{busiName}, repName=#{repName}, busiNum=#{busiNum}, travelBus=#{travelBus},
+						 busiEmail=#{busiEmail}, busiPhone=#{busiPhone}, state=#{state}
+		where cUserCode=#{cUserCode}
+	</update> 
+<!-- 	<update id='updateCuserConfirmHistory' parameterType='com.campin.manager.HistoryCuserVo'>
+		update historycuser h join cuser c on h.state = c.state
+		set h.state=#{state}, c.state=#{state} where hisSno=#{hisSno}
+	</update> -->
+	
+	<!-- notice - manager_main -->
+	<select id='notice' resultType="com.campin.manager.NoticeVo">
+      select (select count(state) from request where category='회원' and state ='등록요청') as userCount,
+            (select count(state) from request where (category='캠핑장' or category = '사이트') and 
+                                           (state = '등록요청' or state='수정요청')) as campCount,
+         (select count(state) from request where category='탈퇴' and state ='탈퇴요청') as dropCount,
+         (select count(state) from request where category='리뷰' and state='블랙요청') as blackCount,
+         (select count(state) from request where category='일반문의' and state='답변대기') as requestCount;
+   </select>
+	
+	
+</mapper>

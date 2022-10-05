@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace='com.campin.mybatis.ReqMapperA'>
+	<select id="totSize" parameterType="PageReq" resultType="Integer">
+		select count(sno) totSize from request
+		where mName like "%${findStr}%"
+		and nal between #{str} and #{end}
+		<choose>
+			<when test="state=='요청대기'">
+				and state in("등록요청","수정요청", "블랙요청","답변대기","탈퇴요청")
+			</when>
+			<when test="state=='요청반려'">
+				and state in("요청반려","블랙반려","탈퇴반려")
+			</when>
+			<when test="state=='요청완료'">
+				and state in("등록완료","수정완료","블랙승인", "답변완료","탈퇴승인")
+			</when>
+			<otherwise>
+			and category = #{category}
+			and state = #{state}
+			</otherwise>
+		</choose>
+	</select>
+	<select id="select" parameterType="PageReq" resultType="RequestVo">
+		select
+		hisDetailSno, hisUserSno, hisItemSno,
+		siteCode, sno, grp, seq, category, nal, cuserCode, mName,
+		itemCode, doc, answer, state, 
+		concat(lpad('┗', seq*12, <![CDATA['&nbsp;']]> ), title ) title
+		from request
+		where mName like "%${findStr}%"
+		and nal between #{str} and #{end}
+		<choose>
+			<when test="state=='요청대기'">
+				and state in("등록요청","수정요청", "블랙요청","답변대기","탈퇴요청")
+				order by sno desc, grp asc, seq asc
+				limit ${startNo-1}, ${listSize}
+			</when>
+			<when test="state=='요청반려'">
+				and state in("요청반려","블랙반려", "탈퇴반려")
+				order by sno desc, grp asc, seq asc
+				limit ${startNo-1}, ${listSize}
+			</when>
+			<when test="state=='요청완료'">
+				and state in("등록완료","수정완료","블랙승인","답변완료","탈퇴승인")
+				order by sno desc, grp asc, seq asc
+				limit ${startNo-1}, ${listSize}
+			</when>
+			<otherwise>
+				and category = #{category}
+				and state = #{state}
+				order by sno desc, grp asc, seq asc
+				limit ${startNo-1}, ${listSize}
+			</otherwise>
+		</choose>
+	</select> 
+	
+	<select id="selectView" parameterType="Integer" resultType="com.campin.manager.RequestVo">
+		select * from request
+		where sno=#{sno}
+	</select>
+	
+	<select id="selectOne" parameterType="Integer" resultType="com.campin.manager.ReviewVoA">
+		select * from review r join `user` u  join orders o 
+		where r.userCode = u.userCode  
+		and r.orderCode = o.orderCode 
+		and r.sno=#{reviewSno}
+	</select>
+	
+	<select id="selectReviewA" parameterType="Integer" resultType="Integer">
+		select r.orderCode from review r join `user` u  join orders o 
+		where r.userCode = u.userCode  
+		and r.orderCode = o.orderCode 
+		and r.sno=#{sno}
+	</select>
+	
+	<select id="selectAns" parameterType="Integer" resultType="Integer">
+		select count(*) from review
+		where orderCode=${orderCode}
+	</select>
+	
+	<insert id="insert" parameterType="RequestVo">
+      insert into request(hisDetailSno, hisUserSno, hisItemSno, siteCode, siteName, sno, grp,
+                 seq, category, nal, cUserCode, mName, itemCode, doc, answer, state, title)
+      values(#{hisDetailSno}, #{hisUserSno}, #{hisItemSno}, #{siteCode}, #{siteName}, #{sno}, #{grp},
+            #{seq}, #{category}, #{nal}, #{cUserCode}, #{mName}, #{itemCode}, #{doc}, #{answer}, #{state}, #{title})        
+   </insert>
+	
+	<update id="updateAnswer" parameterType="com.campin.manager.RequestVo">
+		update request set answer = #{answer}, state=#{state}
+      	where sno = #{sno}
+	</update>
+	
+   <update id="updatecUserState" parameterType="com.campin.manager.RequestVo">
+      update cUser set state=#{state}
+      where cUserCode = #{cUserCode}
+   </update>
+    
+    
+   <update id="updateitemState" parameterType="com.campin.manager.RequestVo">
+      update item set state=#{state}
+      where itemCode = #{itemCode}
+   </update>
+    
+	
+	<update id="updateReq" parameterType="com.campin.manager.RequestVo">
+      update request set nal=#{nal}, doc=#{doc}, title=#{title}
+      where sno = #{sno}
+   </update>
+   
+	 <update id="updatereview" parameterType="com.campin.manager.RequestVo">
+      update review set state=#{state}
+      where sno = #{sno}
+   </update>
+   
+    <update id="updatereviewans" parameterType="com.campin.manager.RequestVo">
+      update review set state=#{state}
+      where orderCode = ${orderCode}
+   </update>
+</mapper>

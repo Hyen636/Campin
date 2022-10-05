@@ -1,0 +1,749 @@
+@charset "UTF-8";
+
+*{
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+   font-family: 'Noto Sans KR', sans-serif;
+   color : #303030;
+}
+a{
+   text-decoration: none;
+}
+
+/*partner_main*/
+*{
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+   font-family: 'Noto Sans KR', sans-serif;
+   color : #303030;
+}
+a{
+   text-decoration: none;
+}
+#partner_main{
+   width : 1366px;
+   margin : 0 auto;
+   display:flex;
+   border-right : 1px solid #f8ca37;
+}
+#partner_main .partner_sub{
+   background-color : #f8ca37;
+   width : 250px;
+   height: 100vh;
+   display : inline-block;
+   margin-right: 30px;
+   position: sticky;
+   top: 0;
+}
+#partner_main .partner_sub .logo{
+   padding : 50px;
+   color : #fff;
+   margin-bottom : 10px;
+}
+#partner_main .partner_sub .icon{
+   width : 80px;
+   margin : 0px auto;
+}
+#partner_main .partner_sub .icon img{
+   width : 50px;
+   margin : 10px;
+}
+#partner_main .partner_menu{
+   width : 220px;
+   margin : 0px auto;
+}
+#partner_main .partner_menu .partner_id{
+   width: 200px;
+   margin: 20px 0;
+   margin-left: 20px;
+}
+#partner_main .partner_menu .partner_id span{
+   color : #fff;
+   font-size : 1em;
+}
+#partner_main .partner_menu .partner_id button{
+   background-color :  #fff;
+   color : #f8ca37;
+   border : none;
+   border-radius : 10px;
+   padding : 3px 10px;
+   cursor : pointer;
+   font-size: 0.8em;
+   margin-left: 10px;
+   position: relative;
+   bottom: 1px;
+}
+
+#partner_main .partner_menu ul{
+   margin-left : 0px;
+   width : 200px;
+   margin : 10px auto;
+   list-style: none;
+   display : inline-block;
+   line-height : 3em;
+}
+#partner_main .partner_menu ul li{
+   margin-left : 20px;
+   color : #fff;
+   text-align : left;
+   cursor: pointer;
+}
+#partner_main .partner_menu ul li:hover{
+   color: #FF8040
+}
+#partner_main .partner_menu ul li:nth-child(7){
+   margin-top : 10px;
+   padding-top: 5px;
+   border-top : 1px solid #fff;
+}
+#partner_main .today_notice ul li{
+   display : inline-block;
+   padding : 3px;
+}
+#partner_main .today_notice{
+   border-bottom : 1px solid #f8ca37;
+   padding : 10px;
+   width : 900px;
+   margin : 20px 0;
+   display : inline-block;
+}
+#partner_main .today_notice ul li{
+   display : inline-block;
+   padding : 3px;
+}
+#partner_main .today_notice ul li span:hover{
+   color: #ff8800;
+   cursor: pointer;
+}
+
+#partner_main .partner_content{
+   width : 1000px;
+   display : inline-block;
+}
+
+
+/* partner_request_input*/
+#partner_request_input{
+   width : 900px;
+   margin : 0 auto;
+}
+#partner_request_input #frm_partner_request_input{
+   width : 650px;
+   border : 1px solid #ccc;
+   border-radius : 10px;
+   padding : 20px;
+   margin : 10px auto;
+   line-height : 2em;
+}
+
+#partner_request_input h2{
+   text-align : center;
+   margin : 15px;
+   padding : 10px; 
+   color :  #f8ca37;
+}
+
+#partner_request_input #frm_partner_request_input .review_att{
+   width : 600px;
+   height : 200px;
+   border : 1px solid #ccc;
+   margin : 10px auto 30px auto;
+}
+#partner_request_input label{
+   display : inline-block;
+   width : 100px;
+   text-align : left;
+   margin-left : 20px;
+}
+#partner_request_input #frm_partner_request_input input{
+   padding-left: 5px;
+}
+#partner_request_input #frm_partner_request_input input[type=date]{
+   width : 219px;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_input #frm_partner_request_input select{
+   width : 219px;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+
+#partner_request_input #frm_partner_request_input input[type=text]{
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_input #frm_partner_request_input input[name=pid]{
+   width : 222x;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_input #frm_partner_request_input input[name=subject]{
+   width : 400px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_input #frm_partner_request_input textarea[name=doc]{
+   display : inline-block;
+   width : 400px;
+   height : 200px;
+   margin-top : -27px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_input #frm_partner_request_input textarea[name=doc2]{
+   display : inline-block;
+   width : 400px;
+   height : 200px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#user_qna_input .frm_user_qna_input .btns_input{
+   padding : 30px;
+}
+
+#partner_request_input .btns_request{
+   width : 400px;
+   margin : 0 auto;
+   text-align : center;
+}
+#partner_request_input .btns_confirm{
+   width : 500px;
+   margin : 50px auto 20px auto;
+   text-align : center;
+}
+
+#partner_request_input .btns_request button{
+   background-color : #f8ca37;
+   color : #fff;
+   width : 80px;
+   padding : 10px;
+   border-radius : 10px;
+   border : none;
+}
+#partner_request_input .btns_request button:hover,
+#partner_request_input .btns_confirm button:hover
+{
+   cursor : pointer;
+}
+
+#partner_request_input .btns_confirm button{
+   background-color : #f8ca37;
+   color : #fff;
+   width : 80px;
+   padding : 10px;
+   border-radius : 10px;
+   border : none;
+}
+
+/*user_reservation_detail*/
+#partner_reservation_detail{
+   width : 750px;
+   margin : 10px auto;
+   line-height : 2em;
+   border : 1px solid #ccc;
+   border-radius : 10px;
+   padding : 20px;   
+}
+#partner_reservation_detail h2{
+   margin : 10px 0 auto;
+   font-size : 18pt;
+   padding : 15px;
+   text-align : left;
+   margin-left : 117px;
+}
+#partner_reservation_detail .frm_partner_reservation_detail{
+   margin-left : 110px;
+}
+#partner_reservation_detail .frm_partner_reservation_detail .reservation_detail_info{
+   width : 500px;
+   padding : 30px;
+   border : 1px solid ccc;
+   border-bottom : 1px solid ccc;
+}
+#partner_reservation_detail .frm_partner_reservation_detail .camp_info{
+   padding : 30px;
+   border : 1px solid ccc;
+   border-bottom : 1px solid ccc;
+}
+#partner_reservation_detail .frm_partner_reservation_detail .pay_info{
+   padding : 30px;
+   border : 1px solid ccc;
+   border-bottom : 1px solid ccc;
+}
+#partner_reservation_detail .frm_partner_reservation_detail .reservation_detail_info label{
+   display : inline-block;
+   width : 100px;
+   text-align : left;
+}
+#partner_reservation_detail .frm_partner_reservation_detail .camp_info label{
+   display : inline-block;
+   width : 100px;
+   text-align : left;
+}
+#partner_reservation_detail .frm_partner_reservation_detail .pay_info label{
+   display : inline-block;
+   width : 120px;
+   text-align : left;
+}
+#partner_reservation_detail .frm_partner_reservation_detail .reservation_detail_info input[name=reservation_number]{
+   color : #4bc1b1;
+   font-size : 13pt;
+   font-weight : bold;
+}
+#partner_reservation_detail .frm_partner_reservation_detail .pay_info input[name=priceAmt]{
+   color : #4bc1b1;
+   font-size : 13pt;
+   font-weight : bold;
+}
+#partner_reservation_detail .btns_detail button{
+   background-color : #4bc1b1;
+   color : #fff;
+   width : 120px;
+   padding : 10px;
+   border-radius : 10px;
+   border : none;
+   margin-top : 30px;
+   margin-bottom : 30px;
+}
+#partner_reservation_detail .btns_detail .btn_confirm{
+   margin-left : 120px;
+}
+#partner_reservation_detail select {
+   width : 100px;
+   border : 1px solid #ccc;
+}
+#partner_reservation_detail textarea[name=comment]{
+   display : inline-block;
+   width : 300px;
+   height : 50px;
+   margin-top : -28px;
+   border : none;
+   padding : 3px;
+}
+#partner_reservation_detail input[type=date]{
+   width : 100px;
+   border : none;
+   padding : 3px;
+}
+#partner_reservation_detail input[type=text]{
+   border: none;
+   padding : 3px;
+}
+#partner_reservation_detail .camp_info .pre_img1{
+   display : inline-block;
+   vertical-align:middle;
+   width : 400px;
+   height : 300px;
+}
+#partner_reservation_detail .camp_info .pre_img1 .preImage_image1{
+   display : inline-block;
+   vertical-align:middle;
+   width : 100%;
+   height : 100%;
+   border-radius : 15px;
+   border : 1px solid #ccc;
+}
+#partner_reservation_detail .pay_info input[name=price],
+#partner_reservation_detail .pay_info input[name=tax],
+#partner_reservation_detail .pay_info input[name=totprice]{
+   text-align : right;
+}
+
+
+
+/* partner_request_input*/
+#partner_request_input{
+   width : 900px;
+   margin : 0 auto;
+}
+#partner_request_input .frm_partner_request_input{
+   width : 650px;
+   border : 1px solid #ccc;
+   border-radius : 10px;
+   padding : 20px;
+   margin : 10px auto;
+   line-height : 2em;
+}
+
+#partner_request_input h2{
+   text-align : center;
+   margin : 5px;
+   padding : 10px; 
+   color :  #f8ca37;
+}
+
+#partner_request_input .frm_partner_request_input .review_att{
+   width : 600px;
+   height : 200px;
+   border : 1px solid #ccc;
+   margin : 10px auto 30px auto;
+}
+#partner_request_input label{
+   display : inline-block;
+   width : 100px;
+   text-align : left;
+   margin-left : 20px;
+}
+
+#partner_request_input .frm_partner_request_input input[type=date]{
+   width : 219px;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_input .frm_partner_request_input select{
+   width : 219px;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+
+#partner_request_input .frm_partner_request_input input[type=text]{
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_input .frm_partner_request_input input[name=pid]{
+   width : 222x;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_input .frm_partner_request_input input[name=subject]{
+   width : 400px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_input .frm_partner_request_input textarea[name=doc]{
+   display : inline-block;
+   width : 400px;
+   height : 200px;
+   margin-top : -27px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_input .frm_partner_request_input textarea[name=doc2]{
+   display : inline-block;
+   width : 400px;
+   height : 200px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#user_qna_input .frm_user_qna_input .btns_input{
+   padding : 30px;
+}
+
+#partner_request_input .btns_request{
+   width : 400px;
+   margin : 20px auto 10px;
+   text-align : center;
+}
+#partner_request_input .btns_confirm{
+   width : 500px;
+   margin : 50px auto 20px auto;
+   text-align : center;
+}
+
+#partner_request_input .btns_request button{
+   background-color : #f8ca37;
+   color : #fff;
+   width : 80px;
+   padding : 10px;
+   border-radius : 10px;
+   border : none;
+}
+#partner_request_input .btns_request button:hover,
+#partner_request_input .btns_confirm button:hover{
+   cursor : pointer;
+}
+
+#partner_request_input .btns_confirm button{
+   background-color : #f8ca37;
+   color : #fff;
+   width : 80px;
+   padding : 10px;
+   border-radius : 10px;
+   border : none;
+}
+
+
+/* partner_request_modify*/
+#partner_request_modify{
+   width : 900px;
+   margin : 0 auto;
+}
+#partner_request_modify .frm_partner_request_modify{
+   width : 650px;
+   border : 1px solid #ccc;
+   border-radius : 10px;
+   padding : 20px;
+   margin : 10px auto;
+   line-height : 2em;
+}
+
+#partner_request_modify h2{
+   text-align : center;
+   margin : 5px;
+   padding : 10px; 
+   color :  #f8ca37;
+}
+
+#partner_request_modify .frm_partner_request_modify .review_att{
+   width : 600px;
+   height : 200px;
+   border : 1px solid #ccc;
+   margin : 10px auto 30px auto;
+}
+#partner_request_modify label{
+   display : inline-block;
+   width : 100px;
+   text-align : left;
+   margin-left : 20px;
+}
+
+#partner_request_modify .frm_partner_request_modify modify[type=date]{
+   width : 219px;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_modify .frm_partner_request_modify select{
+   width : 219px;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+
+#partner_request_modify .frm_partner_request_modify modify[type=text]{
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_modify .frm_partner_request_modify modify[name=pid]{
+   width : 222x;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_modify .frm_partner_request_modify modify[name=subject]{
+   width : 400px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_modify .frm_partner_request_modify textarea[name=doc]{
+   display : inline-block;
+   width : 400px;
+   height : 200px;
+   margin-top : -27px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_request_modify .frm_partner_request_modify textarea[name=doc2]{
+   display : inline-block;
+   width : 400px;
+   height : 200px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#user_qna_modify .frm_user_qna_modify .btns_modify{
+   padding : 30px;
+}
+
+#partner_request_modify .btns_request{
+   width : 400px;
+   margin : 20px auto 10px;
+   text-align : center;
+}
+#partner_request_modify .btns_confirm{
+   width : 500px;
+   margin : 50px auto 20px auto;
+   text-align : center;
+}
+
+#partner_request_modify .btns_request button{
+   background-color : #f8ca37;
+   color : #fff;
+   width : 80px;
+   padding : 10px;
+   border-radius : 10px;
+   border : none;
+}
+#partner_request_modify .btns_request button:hover,
+#partner_request_modify .btns_confirm button:hover
+{
+   cursor : pointer;
+}
+
+#partner_request_modify .btns_confirm button{
+   background-color : #f8ca37;
+   color : #fff;
+   width : 80px;
+   padding : 10px;
+   border-radius : 10px;
+   border : none;
+}
+
+/*partner_qna_input*/
+#partner_qna_input{
+   width:950px;
+   margin : 0 auto;
+}
+#partner_qna_input h2{
+   text-align : center;
+   margin : 5px;
+   padding : 10px;
+   color : #f8ca37;
+   margin-bottom : 10px;
+}
+#partner_qna_input .frm_partner_qna_input{
+   width : 500px;
+   padding : 20px;
+   --border : 2px solid #ccc;
+   border-radius : 10px;
+   margin-bottom : 50px;
+   margin-right: 50px;
+   margin : 0 auto;
+   line-height : 2em;
+}
+#partner_qna_input label{
+   display : inline-block;
+   width : 100px;
+   text-align : left;
+   margin-left : 50px;
+}
+#partner_qna_input .frm_partner_qna_input input[type=date]{
+   width : 215px;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+
+#partner_qna_input .frm_partner_qna_input input[type=text]{
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+
+#partner_qna_input .frm_partner_qna_input .qna_title{
+   margin-left: 50px;
+}
+
+#partner_qna_input .frm_partner_qna_input .qna_doc{
+   display : inline-block;
+   width : 215px;
+   height : 100px;
+   margin-left: 153px;
+   margin-top : -27px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+
+#partner_qna_input .frm_partner_qna_input .ans_title{
+   margin-top: 10px;
+}
+
+#partner_qna_input .frm_partner_qna_input .ans_doc{
+   display : inline-block;
+   width : 215px;
+   height : 100px;
+   margin-top : -27px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+
+#partner_qna_input .frm_partner_qna_input .btns_input{
+   padding : 30px;
+}
+#partner_qna_input .frm_partner_qna_input .btns_input .btn_save{
+   margin-left : 80px;
+}
+
+#partner_qna_input .frm_partner_qna_input .btns_input button{
+   background-color : #f8ca37;
+   color : #fff;
+   width : 80px;
+   padding : 7px;
+   border-radius : 10px;
+   border : none;
+}
+#partner_qna_input .frm_partner_qna_input .btns_input button:hover{
+   cursor : pointer;
+   background-color : #fbdb79;
+}
+
+/*partner_qna_modify*/
+#partner_qna_modify{
+   width:1366px;
+   margin : 0 auto;
+}
+#partner_qna_modify h2{
+   text-align : center;
+   margin : 5px;
+   padding : 10px;
+   color : #4bc1b1;
+   margin-bottom : 10px;
+}
+#partner_qna_modify .frm_partner_qna_modify{
+   width : 500px;
+   padding : 20px;
+   border : 2px solid #ccc;
+   border-radius : 10px;
+   margin-bottom : 50px;
+   margin : 0 auto;
+   line-height : 2em;
+}
+#partner_qna_modify label{
+   display : inline-block;
+   width : 100px;
+   text-align : left;
+   margin-left : 50px;
+}
+#partner_qna_modify .frm_partner_qna_modify input[type=date]{
+   width : 219px;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_qna_modify .frm_partner_qna_modify input[type=text]{
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_qna_modify .frm_partner_qna_modify textarea[name=doc]{
+   display : inline-block;
+   width : 220px;
+   height : 100px;
+   margin-top : -27px;
+   border : none;
+   border : 1px solid #ccc;
+   padding : 3px;
+}
+#partner_qna_modify .frm_partner_qna_modify .btns_modify{
+   padding : 30px;
+}
+#partner_qna_modify .frm_partner_qna_modify .btns_modify .btn_modify{
+   margin-left : 75px;
+}
+
+#partner_qna_modify .frm_partner_qna_modify .btns_modify button{
+   background-color : #4bc1b1;
+   color : #fff;
+   width : 80px;
+   padding : 10px;
+   border-radius : 10px;
+   border : none;
+}
+#partner_qna_modify .frm_partner_qna_modify .btns_modify button:hover{
+   cursor : pointer;
+   background-color : #82d5ca;
+}

@@ -1,0 +1,33 @@
+@charset "EUC-KR";
+
+#manager_review_requset{
+	width: 700px;
+	margin: 0 auto;
+}
+
+#manager_review_requset > #frm_manager_review_request{
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	padding: 10px;
+}
+#manager_review_requset > #frm_manager_review_request > h2{
+	color: #f8ca37;
+	text-align: center;
+}
+#manager_review_requset > #frm_manager_review_request > .review_att > div:first-child{
+	text-align: center;
+}
+#manager_review_requset > #frm_manager_review_request > .review_att > div > img{
+	max-width: 300px;
+	max-height: 300px;
+}
+#manager_review_requset > #frm_manager_review_request > .review_att span{
+	display: inline-block;
+	font-size: 0.9em;
+	color: #4f4f4f;
+	margin: 2px 10px;
+	width: 130px;
+}
+#manager_review_requset > #frm_manager_review_request > .review_att span.date{
+	width : 250px;
+}

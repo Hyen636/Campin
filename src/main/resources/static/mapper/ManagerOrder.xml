@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campin.mybatis.ManagerOrderMapper">
+
+	<!-- 월별 -->
+	<select id="selectMonthSales" parameterType="SalesVo" resultType="SalesVo">
+		select date_format(o.dateOrder, '%Y-%m') AS yearmonth, sum(price)/10 as amount, itemCode, iName
+		FROM orders o 
+		WHERE o.dateOrder &gt;= #{dateStr} AND o.dateOrder &lt;= #{dateEnd}
+		group by o.itemCode, yearmonth, iName
+		order by yearmonth
+	</select>
+	
+	<select id="getOrderItemName" parameterType="SalesVo" resultType="String">
+		select distinct iName from orders o
+		WHERE o.dateOrder &gt;= #{dateStr} AND o.dateOrder &lt;= #{dateEnd}
+	</select>
+</mapper>

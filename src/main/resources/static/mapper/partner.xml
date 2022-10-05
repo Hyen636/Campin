@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace='com.campin.mybatis.PartnerMapper'>
+					
+	<select id='clogin' parameterType='com.campin.partner.CuserVo' resultType='com.campin.partner.CuserVo'>
+		select * from cuser where id=#{id} and pwd=#{pwd}
+	</select>
+	
+	<!-- partner_join -->
+	<insert id='insertR' parameterType='com.campin.partner.CuserVo'>		
+		insert into cuser(id, pwd, mName, birth, phone, email, gender, regDate, state,
+						  busiName, repName, busiNum, travelBus, busiImg, travelImg,
+						  busiEmail, busiPhone, busiBank, busiBankName, busiBankNum, rejectMsg) 
+		values(#{id}, #{pwd}, #{mName}, #{birth}, #{phone}, #{email}, #{gender}, now(), #{state},
+					  #{busiName}, #{repName}, #{busiNum}, #{travelBus}, #{busiImg}, #{travelImg},
+					  #{busiEmail}, #{busiPhone}, #{busiBank}, #{busiBankName}, #{busiBankNum}, #{rejectMsg})
+	</insert>
+	<insert id='insertHistoryCuser' parameterType='com.campin.partner.CuserVo'>		
+		insert into historycuser(cUserCode, id, pwd, mName, birth, phone, email, 
+								gender, regDate, state, busiName, repName, busiNum, 
+								travelBus, busiImg, travelImg, busiEmail, busiPhone, 
+								busiBank, busiBankName, busiBankNum, rejectMsg) 
+		values(#{cUserCode}, #{id}, #{pwd}, #{mName}, #{birth}, #{phone}, #{email},
+			  				 #{gender}, now(), #{state}, #{busiName}, #{repName}, #{busiNum},
+			  				 #{travelBus}, #{busiImg}, #{travelImg}, #{busiEmail}, #{busiPhone},
+			  				 #{busiBank}, #{busiBankName}, #{busiBankNum}, #{rejectMsg})
+	</insert>
+	<insert id='insertCuserReq' parameterType='com.campin.partner.RequestVo'>		
+		insert into request(hisUserSno, grp, seq, category, nal, cUserCode, 
+							mName, itemCode, title, state) 
+					values(#{hisUserSno}, 0, 0, "회원", now(), #{cUserCode}, 
+						#{mName}, #{itemCode}, "R캠지기 등록요청", #{state})
+	</insert>
+	<!-- 이미지 첨부 -->
+	<update id='insertbusiAtt' parameterType='com.campin.partner.JoinAtt'>
+		update cuser set busiImg = #{busiImg} where cUserCode =#{cUserCode}
+	</update>
+	<update id='inserttravelAtt' parameterType='com.campin.partner.JoinAtt'>
+		update cuser set travelImg = #{travelImg} where cUserCode=#{cUserCode}
+	</update>
+	
+	<select id='selectCOne' parameterType='String' resultType='com.campin.partner.CuserVo'>
+		select * from cuser where id=#{_parameter}
+	</select>
+	
+	<select id='findpCId' parameterType='com.campin.partner.CuserVo' resultType='String'>
+		select id from cuser where mName=#{mName} and phone=#{phone}
+	</select>
+	
+	<select id='findeCId' parameterType='com.campin.partner.CuserVo' resultType='String'>
+		select id from cuser where mName=#{mName} and email=#{email}
+	</select>
+	
+	<!-- partner_account_modify -->
+	<insert id='partner_account_modiHisCuser' parameterType='com.campin.partner.CuserVo'>		
+		insert into historycuser(cUserCode, id, pwd, mName, birth, phone, email, 
+								gender, regDate, state, busiName, repName, busiNum, 
+								travelBus, busiEmail, busiPhone,
+								busiBank, busiBankName, busiBankNum, rejectMsg) 
+		values(#{cUserCode}, #{id}, #{pwd}, #{mName}, #{birth}, #{phone}, #{email},
+			  				 #{gender}, now(), #{state}, #{busiName}, #{repName}, #{busiNum},
+			  				 #{travelBus}, #{busiEmail}, #{busiPhone},
+			  				 #{busiBank}, #{busiBankName}, #{busiBankNum}, #{rejectMsg})
+	</insert>
+	<insert id='partner_account_modiReq' parameterType='com.campin.partner.RequestVo'>		
+		insert into request(hisUserSno, grp, seq, category, nal, cUserCode, 
+							mName, itemCode, title, state) 
+					values(#{hisUserSno}, 0, 0, "회원", now(), #{cUserCode}, 
+						#{mName}, #{itemCode}, "M캠지기정보 수정요청", #{state})
+	</insert>
+
+	<update id='updateCuserstate' parameterType='com.campin.partner.CuserVo'>
+		update cuser set state=#{state} where cUserCode=#{cUserCode}
+	</update>
+	
+	<!-- partner_account_modify_req_delete -->
+	<delete id='deleteAccountHisR' parameterType='Integer'>
+		delete from historycuser where hisSno=#{hisSno}
+	</delete>
+	
+	<delete id='partner_account_modiDel' parameterType='com.campin.partner.RequestVo'>
+		delete from request where hisUserSno=#{hisUserSno}
+	</delete>
+	
+	<update id='updateCuserstateDel' parameterType='com.campin.partner.CuserVo'>
+		update cuser set state=#{state} where cUserCode=#{cUserCode}
+	</update>
+	
+	<!-- partner_join_req_delete -->	
+	<delete id='partner_join_reqDel' parameterType='com.campin.partner.CuserVo'>
+		delete from cuser where cUserCode=#{cUserCode}
+	</delete>
+	
+	<delete id='partner_join_reqDelitem' parameterType='Integer'>
+		delete from item where cUserCode=#{cUserCode}
+	</delete>
+	
+	
+	<!-- partner_join_modify -->
+	<!-- 히스토리에 이미지 첨부 -->
+	<update id='insertHbusiatt' parameterType='com.campin.partner.JoinAtt'>
+		update historycuser set busiImg = #{busiImg} where cUserCode =#{cUserCode}
+	</update>
+	
+	<update id='insertHtravelatt' parameterType='com.campin.partner.JoinAtt'>
+		update historycuser set travelImg = #{travelImg} where cUserCode =#{cUserCode}
+	</update>
+	
+	<select id="getmNameCuser" resultType="String">
+		select mName from cuser where cUserCode=#{cUserCode}
+	</select>
+	
+	<select id="getMaxHisSno" resultType="Integer">
+		select max(hisSno) from historycuser
+	</select>
+	
+	<select id="getMaxitemCode" resultType="Integer">
+		select max(itemCode) from item
+	</select>
+	
+	<select id="getitemCode" resultType="Integer">
+		select itemCode from item where cUserCode=#{cUserCode}
+	</select>
+	
+	<!--  -->
+	<update id='updatejoinHisR' parameterType='com.campin.partner.CuserVo'>		
+		update historycuser set mName=#{mName}, birth=#{birth},
+								phone=#{phone}, email=#{email}, gender=#{gender}, regDate=#{regDate}, 
+								state=#{state}, busiName=#{busiName}, repName=#{repName}, busiNum=#{busiNum}, 
+								travelBus=#{travelBus}, busiImg=#{busiImg}, travelImg=#{travelImg}, 
+								busiEmail=#{busiEmail}, busiPhone=#{busiPhone}, busiBank=#{busiBank}, 
+								busiBankName=#{busiBankName}, busiBankNum=#{busiBankNum}, rejectMsg=#{rejectMsg}
+		where cUserCode=#{cUserCode}
+	</update>
+	
+	<update id='updateAccountHisR' parameterType='com.campin.partner.CuserVo'>		
+		update historycuser set mName=#{mName}, birth=#{birth}, phone=#{phone}, email=#{email}, gender=#{gender}, 
+								state=#{state}, busiName=#{busiName}, repName=#{repName}, busiNum=#{busiNum}, 
+								travelBus=#{travelBus}, busiEmail=#{busiEmail}, busiPhone=#{busiPhone}, busiBank=#{busiBank}, 
+								busiBankName=#{busiBankName}, busiBankNum=#{busiBankNum}, rejectMsg=#{rejectMsg}
+		where hisSno=#{hisSno}
+	</update>
+
+	<select id='cPwdValidation' parameterType='com.campin.partner.CuserVo' resultType="String">
+		select pwd from cuser where id=#{id}
+	</select>
+	
+	<update id='updateCPwd' parameterType='com.campin.partner.CuserVo'>
+		update cuser set pwd=#{pwd} where id=#{id}
+	</update>
+	
+	<select id='getcUserCode' parameterType='String' resultType='Integer'>
+		select cUserCode from cuser where id= #{id}
+	</select>
+	
+	<select id='getHisSno' parameterType='Integer' resultType='Integer'>
+		select hisSno from historycuser where cUserCode=#{cUserCode}
+	</select>
+	
+	<select id="getMaxcUserCode" resultType="Integer">
+		select max(cUserCode) from cUser
+	</select>
+	
+	<insert id='insertI' parameterType='Integer'>		
+		insert into item(cUserCode) values('${_parameter}')
+	</insert>
+	
+	<select id='getItemCode' parameterType='Integer' resultType='Integer'>
+		select itemCode from item where cUserCode=#{cUserCode}
+	</select>
+	
+	<select id="getItemState" parameterType="Integer" resultType="String">
+      select state from item where cUserCode = '${_parameter}'
+   </select>
+
+	<select id='cIdValdation' parameterType='String' resultType='String'>
+		select id from cuser where id = '${_parameter}'
+	</select>
+	
+	<select id='cPhoneValidation' parameterType='String' resultType='String'>
+		select phone from cuser where phone = '${_parameter}'
+	</select>
+	
+	<select id='cEmailValidation' parameterType='String' resultType='String'>
+		select email from cuser where email = '${_parameter}'
+	</select>
+	
+	<select id='cBusiNumValidation' parameterType='String' resultType='String'>
+		select busiNum from cuser where busiNum = '${_parameter}'
+	</select>
+	
+	<!-- request -->
+	<select id='selectCuserHisview' parameterType='Integer' resultType='com.campin.partner.HistoryCuserVo'>
+		select * from historycuser where hisSno = #{_parameter}
+	</select>
+	
+	<!-- notice - partner_main -->
+	<select id="notice" parameterType="Integer" resultType="com.campin.manager.NoticeVo">
+      select (select count(state) from orders where itemCode = '${_parameter}'
+                                and (state = '예약대기' or state ='입금대기')) as orderCount,
+            (select count(state) from board where itemCode = '${_parameter}' and state = '미답변') as boardCount,
+            (select count(state) from review where itemCode = '${_parameter}' and state = '미답변') as reviewCount;
+   </select>
+   
+</mapper>

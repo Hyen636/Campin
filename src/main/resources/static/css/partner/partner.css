@@ -1,0 +1,545 @@
+@charset "UTF-8";
+
+/*  
+	초록 #f8ca37;
+	초록호버 #82d5ca;
+	노랑 #f8ca37;
+	노랑호버 #fbdb79;
+*/
+
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;		
+}
+
+
+
+/*캠지기 회원가입*/
+#partner_join{
+	width: 1366px;
+	margin: 30px auto;
+	display: flex;
+}
+
+#partner_join h1{
+	font-size: 25pt;
+	margin-bottom: 30px;
+	color: #f8ca37;
+}
+
+#partner_join input[type=text]{
+	width: 250px;
+	height: 20px;
+	margin-bottom: 30px;
+}
+
+#partner_join .partner_join_input{
+	display:inline-block;
+	width: 500px;
+}
+
+#partner_join .partner_join_input label{
+	display:inline-block;
+	width: 150px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+#partner_join .bank{
+	font-size: 13pt;
+}
+
+#partner_join .business_info label{
+	width: 200px;
+}
+
+#partner_join .partner_join_input .gender{
+	display:inline-block;
+	width:80px;
+	margin-bottom: 20px;
+}
+
+
+
+#partner_join h3{
+	margin-top: 10px;
+	text-align: left;
+	margin-bottom: 20px;
+	border-bottom: solid 1px #f8ca37;
+	padding-bottom: 10px;
+	color: #3a3a3a;
+}
+
+#partner_join .att_file .label_subject{
+	width: 400px;
+}
+
+/* 인풋 스타일 변경 (파일명) */
+#partner_join .att_file .upload-name1, #partner_join .att_file .upload-name2 {
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    width: 300px;
+    color: #999999;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+/* label 스타일 변경(버튼)*/
+#partner_join .att_file label:not(.label_subject) {
+    display: inline-block;
+    width: 100px;
+    padding: 10px;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #f8ca37;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 10px;
+   	margin-bottom: 30px;
+    text-align: center;
+    border-radius: 5px;
+    
+}
+/* 3. 기존 디자인 없애기 */
+#partner_join .att_file input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+#partner_join .partner_join_terms{
+	width: 750px;
+	margin: 0 auto;
+	margin-top: 97px;
+	position:relative;
+	margin-left: 200px;
+	text-align: center;
+}
+
+#partner_join .partner_join_terms .terms{
+	position: absolute;
+	left:0;
+}
+
+#partner_join .partner_join_terms .yes{
+	position:absolute;
+	right:0;
+}
+
+#partner_join .partner_join_terms .yes_all{
+	display:inline-block;	
+	text-align:center;
+	margin-top: 30px;
+}
+
+#partner_join textarea{
+	width: 710px;
+	height: 200px;
+	resize: none;
+	margin-top: 20px;
+	padding: 20px;
+}
+
+#partner_join .btn_join{
+	width: 350px;
+	height: 40px;
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-top: 40px;
+}
+
+#partner_join .admin_permission{
+	width: 750px;
+	margin: 0 auto;
+	margin-top: 97px;
+	position:relative;
+	margin-left: 200px;
+	text-align: center;
+}
+
+#partner_join .admin_permission textarea{
+	width: 710px;
+	height: 200px;
+	resize: none;
+	margin-top: 20px;
+}
+
+#partner_join .admin_permission button{
+	width: 80px;
+	height: 40px;
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-right: 20px;
+	margin-top: 40px;
+}
+
+#partner_join button:hover{
+	cursor : pointer;
+	background-color: #fbdb79;
+}
+
+
+/* 아이디찾기 / 비밀번호찾기*/
+#partner_find_id, #partner_find_pwd{
+	width: 1366px;
+	text-align: center;
+	margin: 30px auto;
+}
+
+#partner_find_id h1, #partner_find_pwd h1{
+	font-size: 25pt;
+	margin-bottom: 20px;
+	color: #f8ca37;
+}
+
+#partner_find_id, #partner_find_pwd{
+	width: 400px;
+	margin: 50px auto;
+}
+
+#partner_find_id > .frm_partner_find_id,
+#partner_find_pwd > .frm_partner_find_pwd{
+	padding: 10px 20px;
+}
+#partner_find_id > .frm_partner_find_id > .certify,
+#partner_find_pwd > .frm_partner_find_pwd > .certify{
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+#partner_find_pwd > .frm_partner_find_pwd > .certify{
+	width: 350px;
+	height: 50px;
+	background: #fff;
+	border: none;
+	text-align: center;
+	line-height: 50px;
+	border-bottom: 2px solid #f8ca37;
+	font-size: 0.9em;
+}
+#partner_find_id > .frm_partner_find_id > .certify > .btn_pPhone,
+#partner_find_id > .frm_partner_find_id > .certify > .btn_pEmail{
+	width: 175px;
+	height: 50px;
+	background: #fff;
+	border: none;
+	cursor: pointer;
+	font-size: 0.9em;
+}
+#partner_find_id > .frm_partner_find_id > .certify > .btn_pPhone{
+	border-bottom: 2px solid #f8ca37;
+}
+#partner_find_id > .frm_partner_find_id .findPidEmail,
+#partner_find_id > .frm_partner_find_id .findPidPhone,
+#partner_find_id > .frm_partner_find_id .findPidName{
+	width: 320px;
+	height: 50px;
+	border: solid 2px #f8ca37;
+	border-radius: 15px;
+	margin: auto;
+	margin-bottom: 10px;
+	padding: 5px;
+	text-align:left;
+	padding: 3px 15px;	
+}
+
+#partner_find_id > .frm_partner_find_id .findPidEmail{
+	display: none;	
+}
+
+#partner_find_id > .frm_partner_find_id .label_group,	
+#partner_find_pwd > .frm_partner_find_pwd .label_group{
+	width: 320px;
+	height: 50px;
+	border: solid 2px #f8ca37;
+	border-radius: 15px;
+	margin: auto;
+	margin-bottom: 10px;
+	padding: 5px;
+	text-align:left;
+	padding: 3px 15px;		
+}
+#partner_find_id > .frm_partner_find_id label,
+#partner_find_pwd > .frm_partner_find_pwd label{
+	display: inline-block;
+	width: 70px;
+	font-size: 1em;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+#partner_find_id > .frm_partner_find_id input[type=text],
+#partner_find_pwd > .frm_partner_find_pwd input[type=text]{
+	position:relative;
+	vertical-align: middle;
+	font-size: 13pt;
+	margin-left: 15px;
+	width: 220px;
+	border:none;
+}
+#partner_find_id > .frm_partner_find_id span,
+#partner_find_pwd > .frm_partner_find_pwd span{
+	position: absolute;;
+	bottom: -10px;
+	margin-left: 0px;
+	font-size: 0.5em; 
+	color: #dd3115;
+}
+#partner_find_id > .frm_partner_find_id .btns,
+#partner_find_pwd > .frm_partner_find_pwd .btns{
+	margin: 20px 0;
+	text-align: center;
+}
+#partner_find_id > .frm_partner_find_id .btns button,
+#partner_find_pwd > .frm_partner_find_pwd .btns button{
+	width: 320px;
+	height: 45px;
+	background: #fff;
+	border: 1px solid #f8ca37;
+	border-radius: 7px;
+	cursor: pointer;
+	padding: 3px 10px;
+	color: #f8ca37;
+	font-size: 1.2em;
+	margin: 10px 0;
+}
+#partner_find_id > .frm_partner_find_id .btns #btnFindPid,
+#partner_find_id > .frm_partner_find_id .btns #btnFindEid,
+#partner_find_pwd > .frm_partner_find_pwd .btns #btnFindPwd{
+	color: #fff;
+	background : #f8ca37;
+}
+
+#partner_find_id img, #partner_find_pwd img{
+	display:inline-block;
+	position:relative;
+	top:5px;
+}
+
+
+
+/*캠지기 정보 수정*/
+/*partner_account_modify*/
+#partner_account_modify{
+	width: 1000px;
+	text-align: center;
+	margin: 30px auto;
+}
+
+#partner_account_modify h1{
+	font-size: 22pt;
+	margin-bottom: 30px;
+	color: #f8ca37;
+}
+#partner_account_modify .frm_partner_modify span{
+	font-size : 0.7em;
+}
+#partner_account_modify input[type=text]{
+	width: 250px;
+	height: 20px;
+	padding : 5px;
+	margin-bottom: 10px;
+}
+#partner_account_modify input[type=radio]{
+    display: none;
+}
+#partner_account_modify input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 85px;
+    border: 1px solid #333;
+    line-height: 22px;
+    text-align: center;
+    font-weight:bold;
+    font-size: 12px;
+    background-color: #fff;
+    color: #333;
+}
+#partner_account_modify input[type=radio]:checked+label{
+    background-color: #f8ca37;
+    color: #fff;
+    border: none;
+}
+
+
+#partner_account_modify .partner_modify_input{
+	display:inline-block;
+	width: 550px;
+	text-align: left;
+}
+
+#partner_account_modify .partner_modify_input label{
+	display:inline-block;
+	width: 150px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+#partner_account_modify .bank{
+	font-size: 11pt;
+	margin-right: 149px;
+}
+
+#partner_account_modify .business_info label{
+	width: 200px;
+}
+
+#partner_account_modify .partner_modify_input .gender{
+	display:inline-block;
+	width:125px;
+	margin-bottom: 20px;
+}
+
+#partner_account_modify h3{
+	margin-top: 10px;
+	text-align: left;
+	margin-bottom: 20px;
+	border-bottom: solid 1px #f8ca37;
+	padding-bottom: 10px;
+	color: #3a3a3a;
+}
+
+#partner_account_modify textarea{
+	width: 710px;
+	height: 200px;
+	resize: none;
+	margin-top: 20px;
+	padding: 20px;
+}
+
+#partner_account_modify .btn_join{
+	width: 350px;
+	height: 40px;
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-top: 40px;
+}
+
+#partner_account_modify .admin_permission{
+	width: 550px;
+	margin: 0 auto;
+	margin-top: 97px;
+	text-align: center;
+}
+
+#partner_account_modify .admin_permission textarea{
+	width: 550px;
+	height: 200px;
+	resize: none;
+	margin-top: 20px;
+}
+
+#partner_account_modify .btn_modify,
+#partner_account_modify .btn_cancel{
+	width: 80px;
+	height: 40px;
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-top: 40px;
+}
+#partner_account_modify .btn_partner_pwd_modify{
+	width: 100px;
+	height: 30px;
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	border-radius:5px;
+	font-size: 10pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+
+#partner_account_modify .btn_permission{
+	width: 80px;
+	height: 40px;
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-right: 20px;
+	margin-top: 40px;
+}
+
+#partner_account_modify button:hover{
+	cursor : pointer;
+	background-color: #fbdb79;
+}
+
+/*캠지기 비밀번호 변경*/
+#partner_pwd_modify{
+	width: 1000px;
+	text-align: center;
+	margin: 30px auto;
+}
+
+#partner_pwd_modify h1{
+	font-size: 22pt;
+	margin-bottom: 50px;
+	color: #f8ca37;
+	padding-bottom: 20px;
+}
+
+#partner_pwd_modify label{
+	display:inline-block;
+	width: 150px;
+	text-align: left;
+	margin-bottom: 5px;
+}
+#partner_pwd_modify span{
+	font-size : 0.7em;
+	margin-left : 210px;
+}
+#partner_pwd_modify .user_partner_input{
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 70px;
+	padding : 5px;
+	text-align: left;
+}
+#partner_pwd_modify .btn_partner_pwd_modify{
+	width: 80px;
+	height: 40px;
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	border-radius:10px;
+	font-size: 13pt;
+	padding:5px;
+	vertical-align: middle;
+	margin-right: 20px;
+	margin-top: 40px;
+}
+#partner_pwd_modify .btn_partner_pwd_modify:hover{
+	cursor : pointer;
+	background-color: #fbdb79;
+}

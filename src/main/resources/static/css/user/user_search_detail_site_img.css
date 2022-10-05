@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+/*메인 슬라이드*/
+/* slide */
+.slide{
+	display:flex;
+	width : 1000px;
+	--height: 200px;
+	background: #fff;
+	margin-top: 0px;
+}
+.slide > div{
+	width: 300px;
+	margin: 0px auto;
+	padding: 20px 0;
+	position:relative;
+}
+.slide > div > .slide_wrap2{
+	width: 300px;
+	overflow: hidden;
+ 	margin: 20px auto;
+}
+.slide > div > .slide_wrap2 > ul {
+	display: flex;
+}
+.slide > div > .slide_wrap2 > ul > li.site__item{
+	min-width: 300px;
+	height: 200px;
+	display: inline-block;
+	background: #ee9ca7;
+	position:relative;
+}
+.slide_nav > img.prev{
+	position:absolute;
+	left: -70px;
+	bottom: 00px;
+}
+
+.slide_nav > img.next{
+	position:absolute;
+	right: -70px;
+	bottom: 00px;
+}
+
+
+/*
+/* 희찬 
+.recommand_book > div {
+	display: flex;
+}
+.recommand_book > div > div:first-child{
+	flex : 40%;
+}
+.recommand_book > div > div:last-child{
+	flex : 60%;
+	padding: 20px;
+}*/

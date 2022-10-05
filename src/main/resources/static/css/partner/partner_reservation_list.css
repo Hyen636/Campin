@@ -1,0 +1,251 @@
+@charset "UTF-8";
+
+*{
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;		
+}
+#partner_reservation_list{
+	width: 1000px;
+	margin: 0px auto;
+	text-align: center;
+}
+#partner_reservation_list > .partner_reservation > .list_title{
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+	color: #f8ca37;
+}
+
+/* 달력 */
+#partner_reservation_list > .calendar{
+	width: 1000px;
+	height: 800px;
+	padding: 20px;
+	margin: 0 auto;
+}
+#partner_reservation_list > .calendar .cal_header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 78px;
+    width: 650px;
+	margin: 25px auto;
+}
+#partner_reservation_list > .calendar .cal_header .year-month{
+    width: 700px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    line-height:1;
+}
+#partner_reservation_list > .calendar .cal_header .year-month span.month{
+	display: inline-block;
+	color:#4f4f4f;
+}
+#partner_reservation_list > .calendar .cal_header .prev,
+#partner_reservation_list > .calendar .cal_header .next{
+    width:40px;
+    height:44px;
+    font-size:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+#partner_reservation_list > .calendar .cal_header .prev::before,
+#partner_reservation_list > .calendar .cal_header .next::before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border:solid #000;
+    border-color:#afafaf;
+    border-width: 3px 3px 0 0;
+    transition: border 0.1s;
+}
+#partner_reservation_list > .calendar .cal_header .prev:hover::before,
+#partner_reservation_list > .calendar .cal_header .next:hover::before{
+    border-color:#fbdb79;
+}
+#partner_reservation_list > .calendar .cal_header .prev::before{
+    transform:rotate(-135deg);
+}
+#partner_reservation_list > .calendar .cal_header .next::before{
+    transform:rotate(45deg);
+}
+#partner_reservation_list > .calendar .cal{
+    padding-top:0px;
+    position:relative;
+    margin:0 auto;
+    width:800px;
+}
+#partner_reservation_list > .calendar .cal .days {
+    display:flex;
+    width:800px;
+    margin-bottom:10px;
+    padding-bottom:10px;
+}
+#partner_reservation_list > .calendar .cal::after{
+    top:368px;
+}
+#partner_reservation_list > .calendar .cal .day{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:calc(100% / 7);
+    height:90px;
+    font-size :20px;
+    text-align:center;
+    position: relative;
+    border: 1px solid #ccc;
+}
+#partner_reservation_list > .calendar .cal .day .nal{
+	position: absolute;
+	top: 0;
+	left: 5px;
+	font-size: 0.8em;
+}
+#partner_reservation_list > .calendar .cal .week{
+	font-size: 1em;
+	height: 30px;
+	border: none;
+}
+#partner_reservation_list > .today {
+	background: rgb(242 242 242);
+}
+#partner_reservation_list > .calendar .cal .date{
+    display:flex;
+    flex-flow:wrap;
+}
+#partner_reservation_list > .calendar .cal .day:nth-child(7n),
+#partner_reservation_list > .calendar .cal .day:nth-child(7n) > .nal{
+    color:#3c6ffa;
+}
+#partner_reservation_list > .calendar .cal .day:nth-child(7n+1),
+#partner_reservation_list > .calendar .cal .day:nth-child(7n+1) > .nal{
+    color:#ed2a61;
+}
+#partner_reservation_list > .calendar .cal .day.disable > .nal{
+    color:#ddd;
+}
+
+/* 예약 리스트 */
+#partner_reservation_list  .reservation_list{
+	margin-left: 25px;
+}
+#partner_reservation_list  .reservation_list .reservation_search{
+	display: flex;
+	justify-content: space-between;
+}
+#partner_reservation_list  .reservation_list .reservation_search .reservation_sorting{
+	display: inline-block;
+	position: relative;
+}
+#partner_reservation_list  .reservation_list .reservation_search .reservation_sorting .find_date{
+	padding: 2px 5px;
+	border: 1px solid #ccc;
+	display: inline-block;
+	width: 120px;
+}
+#partner_reservation_list .reservation_list .reservation_search .reservation_sorting input[type="radio"]{
+	margin-right: 2px;
+}
+#partner_reservation_list .reservation_list .reservation_search .reservation_sorting label{
+	margin-right: 10px;
+}
+#partner_reservation_list .reservation_list .reservation_search > .reservation_find{
+	display: inline-block;
+	width: 300px;
+	margin-right: 15px;	
+}
+#partner_reservation_list .reservation_list .reservation_search > .reservation_find .reservation_findStr{
+	margin-bottom: 5px;
+	border: 2px solid #f8ca37;
+	border-radius: 5px;
+	padding: 10px;
+	width: 250px;
+	height: 30px;
+}
+#partner_reservation_list .reservation_list .reservation_search > .reservation_find img{
+	display: inline-block;
+	cursor: pointer;
+	vertical-align: top;
+	width: 30px;
+	height: 30px;
+}
+#partner_reservation_list .reservation_list  .temp_list{
+	margin-top: 10px;
+}
+#partner_reservation_list .reservation_list  .list{
+	width: 950px;
+}
+#partner_reservation_list .reservation_list  .list > .title{
+	background-color: #f8ca37;
+	padding: 2px 0px;
+}
+#partner_reservation_list .reservation_list  .list > .title span{
+	color: #fff;
+}
+#partner_reservation_list .reservation_list .list span{
+	display: inline-block;
+	text-align: center;
+	font-size: 0.8em;
+}
+#partner_reservation_list .reservation_list  .list .items{
+	min-height: 30px;
+	border-bottom: 2px solid #f8ca37;
+	margin-bottom: 8px;
+}
+#partner_reservation_list .reservation_list  .list .item{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+#partner_reservation_list .reservation_list  .list .no{width: 80px;}
+#partner_reservation_list .reservation_list  .list .siteName{width: 145px;}
+#partner_reservation_list .reservation_list  .list .check_in_date{width: 100px;}
+#partner_reservation_list .reservation_list  .list .check_out_date{width: 100px;}
+#partner_reservation_list .reservation_list  .list .tot{width: 60px;}
+#partner_reservation_list .reservation_list  .list .mName{width: 80px;}
+#partner_reservation_list .reservation_list  .list .phone{width: 120px;}
+#partner_reservation_list .reservation_list  .list .car{width: 90px;}
+#partner_reservation_list .reservation_list  .list .status{width: 80px;}
+#partner_reservation_list .reservation_list  .list .item:hover{
+	cursor: pointer;
+	background-color: #fbdb79;
+}
+#partner_reservation_list .reservation_list  .list .item:hover span{
+	color:#fff;
+}
+
+#partner_reservation_list .reservation_list .paging{
+	text-align: center;
+}
+#partner_reservation_list .reservation_list .paging button{
+	border: none;
+	background-color: #fff;
+	color: #f8ca37;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px;
+}
+#partner_reservation_list .reservation_list .paging button:hover{
+	color: #4bc1b1;
+	cursor: pointer;
+}
+.schedule{
+	width: 100%;
+	height: 100%;
+	padding-top: 30px;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+	overflow: hidden;
+}
+.site{
+	width: 100%;
+	font-size: 0.6em;
+	padding: 1px 0;
+	color: #fff;
+}

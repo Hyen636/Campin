@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+*{
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Noto Sans KR', sans-serif;		
+}
+#manager_account_input{
+	width: 1000px;
+	margin: 0px auto;
+	text-align: center;
+}
+#manager_account_input > .frm_manager_join > .frm_title{
+	text-align: center;
+	font-size: 25pt;
+	font-weight: bold;
+	color: #f8ca37;
+	padding-bottom: 25px;
+}
+#manager_account_input .account_inputs{
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: left;
+}
+#manager_account_input .account_inputs input[type=date]{
+	width: 178px;
+}
+#manager_account_input .account_inputs label:not(.gender){
+	display:inline-block;
+	width: 150px;
+	text-align: left;
+	margin-bottom: 20px;
+}
+input[type=radio]{
+    display: none;
+}
+input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 85px;
+    border: 1px solid #333;
+    line-height: 22px;
+    text-align: center;
+    font-weight:bold;
+    font-size: 12px;
+    background-color: #fff;
+    color: #333;
+}
+input[type=radio]:checked+label{
+    background-color: #f8ca37;
+    color: #fff;
+    border: none;
+}
+/*
+#manager_account_input .account_inputs .gender{
+	display:inline-block;
+	width:60px;
+	margin-bottom: 20px;
+}*/
+#manager_account_input .btn_join,
+#manager_account_input .btn_cancel{
+	width: 150px;
+	background-color: #f8ca37;
+	color: #fff;
+	border: none;
+	border-radius:5px;
+	font-size: 1em;
+	padding: 3px;
+	vertical-align: middle;
+	margin-right: 20px;
+	cursor: pointer;
+}
+#manager_account_input .btn_cancel{
+	color: #f8ca37;
+	border:solid 1px #f8ca37;
+	background-color: #fff;
+}
+/*
+#manager_account_input .btn_join:hover{
+	background-color: #fbdb79;
+	cursor: pointer;
+}
+#manager_account_input .btn_cancel:hover{
+	background-color: #f8ca37;
+	color: #fff;
+	cursor: pointer;
+}*/
+#manager_account_input .btns{
+	width: 350px;
+	margin: 0 auto;
+	margin-top: 10px;
+	text-align: center;
+}

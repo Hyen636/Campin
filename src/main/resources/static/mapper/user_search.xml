@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.campin.mybatis.UserSearchMapper">
+	
+	<select id="totSize" parameterType="searchPage" resultType="Integer">
+		select count(itemCode) from item 
+	</select>
+	
+	<select id="selectListIntAll" parameterType="Integer" resultType='Integer'>
+		select distinct it.itemcode from item it
+		join itemdetail id on it.itemcode = id.itemcode
+		where id.mPeople > #{totalCount} and it.state = '등록완료'
+	</select>
+	<select id="selectListInt" parameterType="searchPage" resultType='Integer'>
+		select distinct it.itemcode from item it
+		join itemdetail id on it.itemcode = id.itemcode
+		where it.sido = #{region} and id.mPeople > #{totalCount} and it.state = '등록완료'
+	</select>
+	
+	<select id="selectListSearchBar" parameterType="UserSearchVo" resultType="Integer">
+		select itemCode from item
+		where itemCode = #{itemCode} and 
+		iName like '%${searchbar}%'
+	</select>
+	<select id="selectListFilter" parameterType="UserSearchCategoryVo" resultType="Integer">
+		select itemCode from category
+		where itemCode = #{itemCode} and cFilter = #{filterStr}
+	</select>
+	
+	
+	 <select id="selectSiteCount" parameterType="Integer" resultType="Integer">
+	 	select count(itemCode) from itemdetail where itemCode = #{_parameter}
+	 </select>
+	 
+	 <select id="selectOrdersCount" parameterType="UserSearchOrdersVo" resultType="Integer">
+	 	select count(itemCode) from orders
+	 	where itemCode = #{itemCode}
+	 	and dateStr <![CDATA[<=]]> #{dateStr} and dateEnd > #{dateStr}
+	 </select>
+	 
+	 
+	 <select id="selectItem" parameterType="Integer" resultType="UserSearchItemVo">
+	 	select iName, sido, infoText from item where itemCode = #{_parameter}
+	 </select>
+	 <select id="selectItemDetail" parameterType="Integer" resultType="Integer">
+	 	select MIN(price) from itemdetail where itemCode = #{_parameter}
+	 </select>
+	 <select id="selectItemAtt" parameterType="Integer" resultType="UserSearchItemAttVo">
+	 	select oriFile, sysFile from itematt where itemCode = #{_parameter} and itemType = "WH"
+	 </select>
+	 <select id="selectCategory" parameterType="Integer" resultType="String">
+	 	select cFilter from category where itemCode = #{_parameter}
+	 </select>
+	 
+	 <select id="selectListTagAll" parameterType="String" resultType="Integer">
+	 	select itemCode from category where cTag = #{_parameter}
+	 </select>
+	 
+	 <select id="selectListTag" parameterType="UserSearchCategoryVo" resultType="Integer">
+	 	select distinct itemCode from category where itemCode = #{itemCode} and cTag = #{cTag}
+	 </select>
+	 
+	 
+	 <select id="selectSnoMax" resultType="Integer">
+	 	select max(sno) from board
+	 </select>
+	 
+	 <insert id="insertQna" parameterType="UserSearchQnaVo">
+	 	insert into board(grp, seq, nal, userCode, itemCode, title, doc, state, pwd)
+	 	values(0, 0, #{nal}, #{userCode}, #{itemCode}, #{title}, #{doc}, "답변대기", #{pwdCheck})
+	 </insert>
+	 
+	 <update id="updateGrp" parameterType="UserSearchQnaVo">
+		update board set grp = #{grp} where sno = #{grp}
+	</update>
+	
+	 
+	 <select id="selectCampDetailInfo" parameterType="searchPage" resultType='UserSearchItemVo'>
+		select iName, address1, title, infoText, latitude, longitude, mStr, mEnd, checkIn, checkOut, policy, refund from item
+		where itemCode = #{detailItemCode}
+	</select>
+	<select id="selectDetailQna" parameterType="PageSearchDetail" resultType='UserSearchDetailBoardVo'>
+		select grp, seq, nal, title, doc, pwd, userCode from board
+		where itemCode = #{detailItemCode} and seq = 0
+		order by nal desc
+	</select>
+	<select id="selectUserName" parameterType="Integer" resultType='String'>
+		select mName from user where userCode = #{_parameter}
+	</select>
+	<select id="selectDetailQnaAnswer" parameterType="PageSearchDetail" resultType='UserSearchDetailBoardVo'>
+		select grp, seq, title, doc from board
+		where itemCode = #{detailItemCode} and seq = 1
+		order by nal desc
+	</select>
+	
+	
+	
+	
+	<select id="selectReviewStar" parameterType="PageSearchDetail" resultType='UserSearchDetailReviewVo'>
+		select score from review
+		where itemCode = #{detailItemCode} and seq = 0
+		order by nal desc
+	</select>
+	<select id="selectReviewCnt" parameterType="PageSearchDetail" resultType='Integer'>
+		select count(sno) from review
+		where itemCode = #{detailItemCode} and seq = 0
+		order by nal desc
+	</select>
+	
+	<select id="selectDetailReview" parameterType="PageSearchDetail" resultType='UserSearchDetailReviewVo'>
+		select orderCode, seq, nal, userCode, siteCode, siteName, doc, score, state, sysFile from review
+		where itemCode = #{detailItemCode} and seq = 0
+		order by nal desc
+	</select>
+	 <select id="selectDetailReviewAnswer" parameterType="PageSearchDetail" resultType='UserSearchDetailReviewVo'>
+		select orderCode, seq, doc from review
+		where itemCode = #{detailItemCode} and seq = 1
+		order by nal desc
+	</select>
+	
+	<select id="selectDetailCampSite" parameterType="String" resultType="UserSearchItemDetailVo">
+		select itemCode, siteCode, siteName, siteSize, price, siteType, category, sPeople, mPeople, cntCar, infoText, state, rejectMsg
+		from itemdetail where itemCode = #{_parameter} and state = "등록완료"
+	</select>
+	<select id="selectItemAddMap" parameterType="String" resultType="String">
+		select sysFile from itematt where itemCode = #{_parameter} and itemType = "map"
+	</select>
+	
+	<select id="selectItemDetailPeopleCheck" parameterType="PageSearchDetail" resultType="UserSearchItemDetailVo">
+		select itemCode, siteCode, siteName, siteSize, price, siteType, category, sPeople, mPeople, cntCar, infoText, state, rejectMsg
+		from itemdetail where itemCode = #{detailItemCode}  and mPeople > #{totalPeople} and state = "등록완료"
+	</select>
+	
+	
+	<select id="selectOrdersSiteCount" parameterType="UserSearchOrdersVo" resultType="Integer">
+	 	select count(itemCode) from orders
+	 	where siteCode = #{siteCode}
+	 	and dateStr <![CDATA[<=]]> #{dateStr} and dateEnd > #{dateStr}
+	 </select>
+	<select id="selectFindSiteCode" parameterType="UserSearchSendReservationVo" resultType="Integer">
+	 	select siteCode from itemdetail
+	 	where itemCode = #{itemCode} and siteName = #{siteName}
+	 </select>
+	 <select id="selectFindcUserCode" parameterType="UserSearchSendReservationVo" resultType="Integer">
+	 	select cUserCode from item
+	 	where itemCode = #{itemCode}
+	 </select>
+	
+	
+	<select id="selectSiteImage" parameterType="PageSearchDetail" resultType="UserSearchItemAttVo">
+	 	select itemCode, itemType, oriFile, sysFile from itematt
+	 	where itemCode = #{detailItemCode} and itemType = #{siteNameSave}
+	 </select>
+	
+	
+	<insert id="insertWishList" parameterType="UserWishlistVo">
+	 	insert into wishlist(userCode, itemCode)
+	 	values(#{userCode}, #{itemCode})
+	 </insert>
+	 
+	 <insert id="deleteWishList" parameterType="UserWishlistVo">
+	 	delete from wishlist
+	 	where userCode = #{userCode} and itemCode = #{itemCode} 
+	 </insert>
+	 
+	 <select id="findwishlist" parameterType="Integer" resultType="Integer">
+	 	select itemCode from wishlist
+	 	where userCode = '${_parameter}';
+	 </select>
+	 <select id="getCategory" parameterType="String" resultType="String">
+	 	select cFilter from category where itemCode = #{_parameter}
+	 </select>
+	 
+	 <select id="searchwishlist" parameterType="Integer" resultType="Integer">
+	 	select count(itemCode) from wishlist
+	 	where userCode = '${_parameter}';
+	 </select>
+	 
+	 
+	 <select id="selectCampHWImg" parameterType="PageSearchDetail" resultType="UserSearchItemAttVo">
+	 	select itemCode, itemType, oriFile, sysFile from itematt
+	 	where itemCode = #{detailItemCode} and itemType ="WH"
+	 </select>
+	 
+	 
+	 <select id="selectSiteCnt" parameterType="Integer" resultType="UserSearchItemAttVo">
+	 	select distinct itemType from itematt
+	 	where itemCode = '${_parameter}' and itemType !="WH" and itemType !="map";
+	 </select>
+	 
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

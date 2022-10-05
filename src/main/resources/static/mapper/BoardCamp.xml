@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace='com.campin.mybatis.BoardMapperC'>
+	<select id="totSize" parameterType="PageReq" resultType="Integer">
+		select count(sno) totSize
+		from board b join `user` u 
+		where b.userCode =u.userCode
+		and u.mName like "%${findStr}%"
+		and itemCode = ${itemCode}
+		and nal between #{str} and #{end}
+		and state = #{state}
+		
+	</select>
+	<select id="select" parameterType="PageReq" resultType="BoardVo">
+		select b.sno,b.grp,b.nal, b.userCode, u.mName, b.state, b.pwd,
+		concat(lpad('┗', seq*12, <![CDATA['&nbsp;']]> ), title ) title
+		from board b join `user` u 
+		where b.userCode =u.userCode 
+		and u.mName like "%${findStr}%"
+		and itemCode = ${itemCode}
+		and nal between #{str} and #{end}
+		and state = #{state}
+		order by b.grp desc, b.seq asc
+		limit ${startNo-1}, ${listSize}
+	</select> 
+	
+	<select id="selectcmapCode" parameterType="Integer" resultType="Integer">
+		select itemCode from item
+		where cUserCode=${cUserCode}
+	</select> 
+	
+	<select id="selectAnswer" parameterType="BoardVo" resultType="Integer">
+		select max(sno) from board
+		where grp = ${grp}
+	</select> 
+	
+	<select id="selectDoc" parameterType="Integer" resultType="String">
+		select doc from board
+		where sno = ${sno}
+	</select> 
+	
+	<select id="selectqTitle" parameterType="Integer" resultType="String">
+		select title from board
+		where sno = ${grp}
+	</select> 
+	
+	<insert id="insert" parameterType="BoardVo">
+		insert into board(sno,grp, seq, nal, userCode,itemCode,title,doc,state,pwd)
+		values(null,${grp},1,#{nal},#{userCode},#{itemCode},#{title},#{doc},#{state},#{pwd})
+	</insert> 
+	
+	<update id="insertUpdate" parameterType="BoardVo">
+		update board set state=#{state}
+		where sno=#{sno}
+	</update>
+	
+	<update id="update" parameterType="BoardVo">
+		update board set nal=#{nal}, title=#{title}, doc=#{doc}
+		where sno=#{sno}
+	</update>
+	
+	<delete id="delete" parameterType="Integer">
+		delete from board
+		where sno=#{sno}
+	</delete>
+	
+</mapper>
